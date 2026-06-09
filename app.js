@@ -439,16 +439,16 @@ function selectProgram(progId) {
 function getMasonryItemStyle(aspect) {
   switch (aspect) {
     case "wide":
-      return "md:col-span-2 h-[260px] sm:h-[300px]";
+      return "md:col-span-2 row-span-2 h-full w-full";
     case "tall":
-      return "row-span-2 h-[450px] sm:h-[500px]";
+      return "row-span-3 h-full w-full";
     case "tallest":
-      return "row-span-2 h-[480px] sm:h-[560px] md:col-span-1";
+      return "row-span-4 md:col-span-1 h-full w-full";
     case "landscape":
-      return "h-[200px] sm:h-[240px]";
+      return "row-span-2 h-full w-full";
     case "square":
     default:
-      return "h-[240px] sm:h-[300px]";
+      return "row-span-2 h-full w-full";
   }
 }
 
