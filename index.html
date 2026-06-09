@@ -4,10 +4,1033 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hope Heal and Humanity Foundation (H3F)</title>
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tailwind CSS v3/v4 Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+            },
+            colors: {
+              sky: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e',
+              },
+              slate: {
+                850: '#1e293b',
+                950: '#020617',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scaleUp {
+        from {
+          opacity: 0;
+          transform: scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .animate-scaleUp {
+        animation: scaleUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+    </style>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-sky-500 selection:text-white">
+    <!-- Header Component -->
+    <header class="w-full z-50 flex flex-col" id="h3f-header">
+      <!-- Top Utility Bar -->
+      <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center border-b border-slate-800 gap-2">
+        <div class="flex flex-wrap justify-center sm:justify-start items-center gap-4 sm:gap-6">
+          <a href="tel:+918240603991" class="flex items-center gap-1.5 hover:text-sky-400 font-mono transition-colors">
+            <i data-lucide="phone" class="text-sky-400 w-3.5 h-3.5"></i>
+            <span>+91 82406 03991</span>
+          </a>
+          <a href="mailto:contact@h3f.org.in" class="flex items-center gap-1.5 hover:text-sky-400 font-mono transition-colors">
+            <i data-lucide="mail" class="text-sky-400 w-3.5 h-3.5"></i>
+            <span>contact@h3f.org.in</span>
+          </a>
+          <div class="flex items-center gap-1.5 font-mono text-slate-300">
+            <i data-lucide="map-pin" class="text-sky-400 w-3.5 h-3.5"></i>
+            <span>Behala, Kolkata - 700061</span>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-sky-950 text-sky-400 border border-sky-800 font-sans">
+            ● 80G Tax Exempt
+          </span>
+          <span class="text-slate-400 font-mono">Reg No: S0024953/WB</span>
+        </div>
+      </div>
+
+      <!-- Main Navigation -->
+      <div class="bg-white/95 backdrop-blur-md sticky top-0 border-b border-slate-200 shadow-sm px-4 sm:px-8 py-4 flex justify-between items-center">
+        <!-- Brand/Logo Section -->
+        <div onclick="setActiveTab('home')" class="flex items-center gap-3 group cursor-pointer select-none">
+          <!-- Logo SVG -->
+          <svg width="42" height="42" viewBox="0 0 600 500" fill="none" class="group-hover:scale-105 transition-transform duration-300 shrink-0">
+            <g id="figure-cyan">
+              <circle cx="140" cy="315" r="28" fill="#00A8C5" />
+              <path d="M100 285 C140 230, 260 235, 287 285 C230 290, 190 350, 180 370 C165 310, 120 290, 100 285 Z" fill="#00A8C5" />
+            </g>
+            <g id="figure-green">
+              <circle cx="160" cy="185" r="28" fill="#43A047" />
+              <path d="M140 120 C185 130, 245 200, 285 280 C230 270, 190 220, 185 240 C170 190, 150 140, 140 120 Z" fill="#43A047" />
+            </g>
+            <g id="figure-lime">
+              <circle cx="280" cy="110" r="28" fill="#9CCC65" />
+              <path d="M295 60 C290 120, 230 160, 240 260 C260 250, 310 180, 340 110 C325 90, 310 75, 295 60 Z" fill="#9CCC65" />
+            </g>
+            <g id="figure-yellow">
+              <circle cx="430" cy="135" r="28" fill="#FFD54F" />
+              <path d="M495 120 C465 160, 410 230, 340 263 C378 220, 375 160, 380 150 C410 150, 465 130, 495 120 Z" fill="#FFD54F" />
+            </g>
+            <g id="figure-orange">
+              <circle cx="510" cy="240" r="28" fill="#FB8C00" />
+              <path d="M555 260 C535 290, 460 300, 350 270 C410 250, 440 200, 455 180 C480 205, 520 230, 555 260 Z" fill="#FB8C00" />
+            </g>
+            <g id="waves-red">
+              <path d="M120 410 C210 330, 360 280, 520 295 C410 320, 280 370, 135 450 C130 435, 125 422, 120 410 Z" fill="#E53935" />
+              <path d="M150 450 C210 400, 360 350, 538 335 C410 370, 260 410, 150 495 Z" fill="#E53935" />
+            </g>
+          </svg>
+          <div class="flex flex-col">
+            <h1 class="text-xs sm:text-sm font-extrabold tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors uppercase leading-tight">
+              Hope Heal and Humanity Foundation (H3F)
+            </h1>
+            <p class="text-[10px] sm:text-xs font-semibold tracking-wide text-slate-500 capitalize leading-snug">
+              Lend a hand to bring a smile <span class="text-sky-500 font-bold mx-1">●</span> Kolkata trust
+            </p>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation Drawer -->
+        <nav class="hidden lg:flex items-center gap-1">
+          <button id="nav-link-home" onclick="setActiveTab('home')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-sky-600 border-b-2 border-sky-600 rounded-none pb-1 pt-1">Home</button>
+          <button id="nav-link-about" onclick="setActiveTab('about')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">About Us</button>
+          <button id="nav-link-programs" onclick="setActiveTab('programs')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">Our Programs</button>
+          <button id="nav-link-gallery" onclick="setActiveTab('gallery')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">Masonry Gallery</button>
+          <button id="nav-link-donate" onclick="setActiveTab('donate')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">Donate</button>
+          <button id="nav-link-contact" onclick="setActiveTab('contact')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">Contact Us</button>
+          <div class="h-6 w-px bg-slate-200 mx-4"></div>
+          <button onclick="setActiveTab('donate')" class="bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm px-5 py-2 rounded-full shadow-md shadow-sky-200 active:scale-95 transition-all outline-none cursor-pointer">
+            Donate Now
+          </button>
+        </nav>
+
+        <!-- Mobile Drawer Toggles -->
+        <div class="flex lg:hidden items-center gap-2">
+          <button onclick="setActiveTab('donate')" class="flex items-center gap-1 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xs px-3.5 py-2 rounded-full shadow-md transition-all active:scale-95 cursor-pointer">
+            <i data-lucide="heart" fill="white" class="w-3 h-3"></i>
+            Donate
+          </button>
+          <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors cursor-pointer" aria-label="Toggle menu">
+            <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+            <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile drawer panel -->
+      <div id="mobile-drawer" class="lg:hidden bg-white border-b border-slate-200 py-4 px-4 flex flex-col gap-1 shadow-inner hidden animate-fadeIn">
+        <button id="mobile-nav-link-home" onclick="setActiveTab('home')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all bg-sky-50 text-sky-700">Home</button>
+        <button id="mobile-nav-link-about" onclick="setActiveTab('about')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">About Us</button>
+        <button id="mobile-nav-link-programs" onclick="setActiveTab('programs')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">Our Programs</button>
+        <button id="mobile-nav-link-gallery" onclick="setActiveTab('gallery')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">Masonry Gallery</button>
+        <button id="mobile-nav-link-donate" onclick="setActiveTab('donate')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">Donate</button>
+        <button id="mobile-nav-link-contact" onclick="setActiveTab('contact')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">Contact Us</button>
+        <div class="border-t border-slate-100 my-2 pt-2">
+          <div class="flex flex-col gap-2 p-2">
+            <span class="text-xs font-semibold text-sky-600 font-mono uppercase tracking-widest">Tax Benefits</span>
+            <p class="text-xs text-slate-500 leading-snug">
+              All donations to Hope Heal and Humanity Foundation are 50% tax exempt under section 80G of IT Act, India.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Viewport Router -->
+    <main class="flex-1 w-full">
+      
+      <!-- ==================== HOME TAB ==================== -->
+      <div id="view-home" class="animate-fadeIn">
+        <!-- Hero Section -->
+        <section class="relative min-h-[80vh] flex flex-col justify-center overflow-hidden" id="h3f-hero">
+          <!-- Background image cover -->
+          <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1600" alt="Smiling Children Learning" class="w-full h-full object-cover object-center scale-105 animate-[pulse_10s_ease-in-out_infinite] brightness-90 saturate-50" />
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-sky-950/60" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/20" />
+          </div>
+
+          <!-- Hero Core Messaging -->
+          <div class="relative z-10 px-6 sm:px-8 py-20 lg:py-24 max-w-5xl text-white leading-relaxed flex flex-col gap-6 md:gap-7">
+            <div class="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-sky-600/10 text-sky-300 border border-sky-500/20 backdrop-blur-md">
+              <i data-lucide="sparkles" class="text-amber-400 fill-amber-400 w-3.5 h-3.5"></i>
+              <span>Care Based in Kolkata, West Bengal</span>
+            </div>
+
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+              Education, Food Relief,<br class="hidden sm:block" />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-blue-400">
+                Child Welfare & Support
+              </span>
+            </h2>
+
+            <p class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
+              The <span class="font-semibold text-white">Hope Heal and Humanity Foundation (H3F)</span> is a registered NGO community trust committed to lifting the marginalized pockets in south Kolkata. Discover our programs and track our direct local campaigns.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 mt-2">
+              <button onclick="setActiveTab('donate')" class="group flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-base px-6 py-3 rounded-full shadow-md shadow-sky-200 active:scale-95 transition-all cursor-pointer">
+                <i data-lucide="heart" fill="white" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
+                <span>Donate Now</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+              </button>
+              <button onclick="setActiveTab('contact')" class="bg-transparent hover:bg-white/10 text-white font-semibold text-base px-6 py-3 rounded-full border-2 border-white/40 hover:border-white/90 backdrop-blur-sm transition-all cursor-pointer">
+                Volunteer / Contact
+              </button>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-6 mt-4 text-xs font-mono text-slate-400">
+              <div class="flex items-center gap-2">
+                <i data-lucide="shield-check" class="text-sky-400 w-4 h-4"></i>
+                <span>Registered Charity S0024953</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="award" class="text-amber-400 w-4 h-4"></i>
+                <span>80G Tax Exemption</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Live Counter section -->
+          <div class="relative z-10 w-full bg-slate-900/90 border-t border-slate-800 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-white">
+              <div class="flex flex-col gap-1 border-r border-slate-800/80 pr-4">
+                <p class="text-xs font-semibold text-sky-400 uppercase tracking-widest font-mono">Education Kits Distributed</p>
+                <div class="flex items-baseline gap-1">
+                  <span id="kits-gifted-count" class="text-2xl sm:text-3xl font-mono font-bold leading-none">1,284</span>
+                  <span class="text-xs text-slate-400 font-light font-sans">Kits</span>
+                </div>
+                <span class="text-[10px] text-slate-500 font-mono">Project Vidyarthi</span>
+              </div>
+
+              <div class="flex flex-col gap-1 border-r border-slate-800/80 pr-4">
+                <p class="text-xs font-semibold text-sky-400 uppercase tracking-widest font-mono">Meals Served Active</p>
+                <div class="flex items-baseline gap-1">
+                  <span id="meals-served-count" class="text-2xl sm:text-3xl font-mono font-bold leading-none text-sky-400">6,425</span>
+                  <span class="text-xs text-slate-400 font-light font-sans">Meals</span>
+                </div>
+                <span class="text-[10px] text-slate-500 font-mono">● Auto Counting</span>
+              </div>
+
+              <div class="flex flex-col gap-1 border-r border-slate-800/80 pr-4">
+                <p class="text-xs font-semibold text-sky-400 uppercase tracking-widest font-mono">Elder Care Routine</p>
+                <div class="flex items-baseline gap-1">
+                  <span class="text-2xl sm:text-3xl font-mono font-bold leading-none">120</span>
+                  <span class="text-xs text-slate-400 font-light font-sans">Seniors</span>
+                </div>
+                <span class="text-[10px] text-slate-500 font-mono">Project Dignity</span>
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <p class="text-xs font-semibold text-sky-400 uppercase tracking-widest font-mono">Transparency Rating</p>
+                <div class="flex items-baseline gap-1">
+                  <span class="text-2xl sm:text-3xl font-mono font-bold text-amber-300 leading-none">100%</span>
+                  <span class="text-xs text-slate-400 font-light font-sans">Verified</span>
+                </div>
+                <span class="text-[10px] text-slate-500 font-mono">Audit Standard</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Home Strategic Spotlight -->
+        <section class="py-20 bg-white">
+          <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="flex flex-col gap-3 p-6.5 rounded-3xl bg-slate-50/50 border border-slate-100">
+              <span class="text-xs font-bold font-mono text-sky-600 uppercase bg-sky-50 py-0.5 px-2.5 rounded-md w-fit">Strategic Focus 01</span>
+              <h3 class="text-xl font-bold text-slate-900">Direct Local Deliveries</h3>
+              <p class="text-sm text-slate-600 leading-relaxed font-light">
+                Unlike standard centralized aggregators, we purchase materials in bulk, pack, and hand-deliver school kits and nutrition packages directly into classrooms and slums.
+              </p>
+              <button onclick="setActiveTab('about')" class="text-xs font-bold text-sky-600 hover:text-sky-700 text-left underline mt-1 outline-none cursor-pointer">
+                Examine Our Methods
+              </button>
+            </div>
+
+            <div class="flex flex-col gap-3 p-6.5 rounded-3xl bg-slate-50/50 border border-slate-100">
+              <span class="text-xs font-bold font-mono text-sky-600 uppercase bg-sky-50 py-0.5 px-2.5 rounded-md w-fit">Strategic Focus 02</span>
+              <h3 class="text-xl font-bold text-slate-900">Education Over Dependency</h3>
+              <p class="text-sm text-slate-600 leading-relaxed font-light">
+                Providing materials alone is not enough. Under Project Vidyarthi, we provide routine after-school coaching sessions to foster deep academic resilience in youth.
+              </p>
+              <button onclick="setActiveTab('programs')" class="text-xs font-bold text-sky-600 hover:text-sky-700 text-left underline mt-1 outline-none cursor-pointer">
+                Examine child Programs
+              </button>
+            </div>
+
+            <div class="flex flex-col gap-3 p-6.5 rounded-3xl bg-slate-50/50 border border-slate-100">
+              <span class="text-xs font-bold font-mono text-sky-600 uppercase bg-sky-50 py-0.5 px-2.5 rounded-md w-fit">Strategic Focus 03</span>
+              <h3 class="text-xl font-bold text-slate-900">Elderly Companion Circles</h3>
+              <p class="text-sm text-slate-600 leading-relaxed font-light">
+                Seniors left behind face acute healthcare degradation. We sponsor continuous chronic medical capsules and distribute dignity ration aids to unassisted elders.
+              </p>
+              <button onclick="setActiveTab('donate')" class="text-xs font-bold text-sky-600 hover:text-sky-700 text-left underline mt-1 outline-none cursor-pointer">
+                Sponsor Elder Care
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- ==================== ABOUT TAB ==================== -->
+      <div id="view-about" class="hidden animate-fadeIn py-16 px-6 sm:px-8 max-w-7xl mx-auto">
+        <!-- Grid Header -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start border-b border-slate-200 pb-16">
+          <div class="lg:col-span-5 flex flex-col gap-4">
+            <span class="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full w-fit">
+              Corporate Governance
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+              Hope Heal and Humanity Foundation Trust
+            </h2>
+            <p class="text-sm text-slate-400 font-mono">Registered Public Trust Board ● Reg ID: S0024953/WB</p>
+          </div>
+          <div class="lg:col-span-1 hidden lg:block h-32 w-px bg-slate-200 justify-self-center"></div>
+          <div class="lg:col-span-6 flex flex-col gap-4 text-sm sm:text-base font-light text-slate-600 leading-relaxed">
+            <p>
+              Hope Heal and Humanity Foundation (H3F) is a registered, non-profit community trust centered on immediate material relief and childhood coaching in Kolkata, India. Founded during local challenges by professional trustees, we operate directly to build local resilience.
+            </p>
+            <p class="font-normal text-slate-800">
+              We operate with 100% financial auditing standards. Every single rupee received is logged, matched against active project inventory invoices, and processed directly.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pillar Buttons Grid -->
+        <div id="about-pillars-section" class="py-16">
+          <div class="text-center max-w-xl mx-auto mb-10">
+            <h3 class="text-2xl font-bold tracking-tight text-slate-950">Active Pillar Insights</h3>
+            <p class="text-xs sm:text-sm text-slate-500 font-light mt-1.5Packed font-sans pb-4">
+              Click on any structural core values pillar to review its operational direct impacts.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <button id="about-pillar-btn-hope" onclick="selectPillar('hope')" class="flex flex-col gap-3 p-4 rounded-xl border-2 text-left transition-all outline-none cursor-pointer border-sky-600 bg-sky-50/40 shadow-sm shadow-sky-50">
+              <div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center text-sky-700/80">
+                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+              </div>
+              <span class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">HOPE</span>
+              <p class="text-xs text-slate-500 font-light font-sans truncate">School backpacks & booklets</p>
+            </button>
+
+            <button id="about-pillar-btn-heal" onclick="selectPillar('heal')" class="flex flex-col gap-3 p-4 rounded-xl border-2 text-left transition-all outline-none cursor-pointer border-slate-100 bg-white hover:border-slate-200">
+              <div class="w-10 h-10 rounded-lg bg-rose-50 flex items-center justify-center text-rose-500">
+                <i data-lucide="activity" class="w-5 h-5"></i>
+              </div>
+              <span class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">HEAL</span>
+              <p class="text-xs text-slate-500 font-light font-sans truncate">Geriatric medicine capsules</p>
+            </button>
+
+            <button id="about-pillar-btn-humanity" onclick="selectPillar('humanity')" class="flex flex-col gap-3 p-4 rounded-xl border-2 text-left transition-all outline-none cursor-pointer border-slate-100 bg-white hover:border-slate-200">
+              <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600">
+                <i data-lucide="flame" class="w-5 h-5"></i>
+              </div>
+              <span class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">HUMANITY</span>
+              <p class="text-xs text-slate-500 font-light font-sans truncate">Dry ration grocery bags</p>
+            </button>
+
+            <button id="about-pillar-btn-together" onclick="selectPillar('together')" class="flex flex-col gap-3 p-4 rounded-xl border-2 text-left transition-all outline-none cursor-pointer border-slate-100 bg-white hover:border-slate-200">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <span class="text-sm font-bold text-slate-900 uppercase tracking-wider font-mono">TOGETHER</span>
+              <p class="text-xs text-slate-500 font-light font-sans truncate">Daycare activity centers</p>
+            </button>
+          </div>
+
+          <!-- Dynamic Result Desk -->
+          <div class="mt-8 bg-sky-950 text-slate-100 rounded-3xl p-8 border border-sky-900 shadow-lg relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl -z-10"></div>
+            <p class="text-[10px] font-mono font-bold tracking-widest text-sky-400 uppercase">Operational Policy Insight</p>
+            <h4 id="selected-pillar-title" class="text-xl sm:text-2xl font-bold tracking-tight text-white mt-1">Hope (Vidyarthi)</h4>
+            <blockquote id="selected-pillar-description" class="text-sm sm:text-base font-light font-serif italic text-slate-300 leading-relaxed mt-4 border-l-2 border-sky-500 pl-4">
+              "We provide educational kits, cartoon backpacks, writing slates, folders, pencil boxes, and uniform subsidies to under-resourced schools. Our team has committed to assuring that economic distress never derails primary education in local communities of Behala, Kolkata."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Team Trustee Section -->
+        <div id="about-team-section" class="pt-10">
+          <div class="max-w-xl mb-12">
+            <span class="text-xs font-bold font-mono text-sky-600 uppercase tracking-wider">The Board on the Ground</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 mt-1">Team of Trustees & Coordinators</h3>
+            <p class="text-sm text-slate-500 mt-2 font-light">
+              H3F is steered by local community leaders, medical professionals, and educators offering their skills entirely pro-bono.
+            </p>
+          </div>
+
+          <!-- Trustee Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="flex flex-col gap-4 group">
+              <div class="aspect-square w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=300" alt="Dr. Anirban Choudhury" class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-300 transform group-hover:scale-102" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <h4 class="text-lg font-bold text-slate-900">Dr. Anirban Choudhury</h4>
+                <p class="text-xs font-mono font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded w-fit">President & Chief Medical Trustee</p>
+                <p class="text-xs text-slate-600 font-light leading-relaxed">
+                  Pioneering community geriatric health for 14 years. Dr. Choudhury orchestrates dry health drives, senior care units, and directs our elderly welfare program.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-4 group">
+              <div class="aspect-square w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300" alt="Srimati Priya Sen" class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-300 transform group-hover:scale-102" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <h4 class="text-lg font-bold text-slate-900">Srimati Priya Sen</h4>
+                <p class="text-xs font-mono font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded w-fit">Child Welfare & Education Strategy</p>
+                <p class="text-xs text-slate-600 font-light leading-relaxed">
+                  An educationist devoted to foundational learning. Priya shapes Project Vidyarthi's after-school syllabus and guides school-kit distributions across regional primary centers.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-4 group">
+              <div class="aspect-square w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300" alt="Subhashis Roy" class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-300 transform group-hover:scale-102" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <h4 class="text-lg font-bold text-slate-900">Subhashis Roy</h4>
+                <p class="text-xs font-mono font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded w-fit">Lead Field Operations Coordinator</p>
+                <p class="text-xs text-slate-600 font-light leading-relaxed">
+                  Subhashis leads the ground logistic lines, ensuring dry food packing is meticulously executed and ration drives in Kolkata's outer slums reach families most in need.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ==================== PROGRAMS TAB ==================== -->
+      <div id="view-programs" class="hidden animate-fadeIn py-16 px-6 sm:px-8 max-w-7xl mx-auto">
+        <div class="max-w-2xl mb-12">
+          <span class="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full w-fit">
+            Campaign Highlights
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-2">
+            Our Key Structural Programs
+          </h2>
+          <p class="text-sm sm:text-base text-slate-500 font-light leading-relaxed mt-2.5Packed">
+            We center efforts on immediate, physical material relief coupled with childhood coaching. Select a campaign stream below to explore metrics.
+          </p>
+        </div>
+
+        <!-- Sidebar layout structure -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-4 flex flex-col gap-4">
+            <button id="program-btn-education" onclick="selectProgram('education')" class="w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 outline-none relative group cursor-pointer border-sky-600 bg-sky-50/30 shadow-sm shadow-sky-50/50">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center text-sky-700">
+                  <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs font-mono text-slate-400">Project Vidyarthi</span>
+                  <span class="text-base font-bold text-slate-900">Child Education</span>
+                </div>
+                <div class="ml-auto">
+                  <i data-lucide="arrow-right" class="arrow-icon text-sky-600 transition-all transform rotate-45 shrink-0 w-4 h-4"></i>
+                </div>
+              </div>
+            </button>
+
+            <button id="program-btn-food-relief" onclick="selectProgram('food-relief')" class="w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 outline-none relative group cursor-pointer border-slate-100 bg-white hover:border-slate-200">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600">
+                  <i data-lucide="flame" class="w-5 h-5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs font-mono text-slate-400">Project Anna</span>
+                  <span class="text-base font-bold text-slate-900">Food & Nutrition</span>
+                </div>
+                <div class="ml-auto">
+                  <i data-lucide="arrow-right" class="arrow-icon text-slate-300 group-hover:text-sky-500 transition-all shrink-0 w-4 h-4"></i>
+                </div>
+              </div>
+            </button>
+
+            <button id="program-btn-child-welfare" onclick="selectProgram('child-welfare')" class="w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 outline-none relative group cursor-pointer border-slate-100 bg-white hover:border-slate-200">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <i data-lucide="sparkles" class="w-5 h-5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs font-mono text-slate-400">Project Suraksha</span>
+                  <span class="text-base font-bold text-slate-900">Child Welfare</span>
+                </div>
+                <div class="ml-auto">
+                  <i data-lucide="arrow-right" class="arrow-icon text-slate-300 group-hover:text-sky-500 transition-all shrink-0 w-4 h-4"></i>
+                </div>
+              </div>
+            </button>
+
+            <button id="program-btn-elderly-care" onclick="selectProgram('elderly-care')" class="w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 outline-none relative group cursor-pointer border-slate-100 bg-white hover:border-slate-200">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-rose-500">
+                  <i data-lucide="heart" class="w-5 h-5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs font-mono text-slate-400">Project Dignity</span>
+                  <span class="text-base font-bold text-slate-900">Elderly Support</span>
+                </div>
+                <div class="ml-auto">
+                  <i data-lucide="arrow-right" class="arrow-icon text-slate-300 group-hover:text-sky-500 transition-all shrink-0 w-4 h-4"></i>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Dynamic Details Desk -->
+          <div class="lg:col-span-8 bg-white border border-slate-150 rounded-3xl p-6 sm:p-9 shadow-sm flex flex-col gap-6">
+            <div class="border-b border-slate-100 pb-5">
+              <h3 id="program-detail-title" class="text-xl sm:text-2xl font-extrabold text-slate-950 leading-tight">
+                Project Vidyarthi: Enlightening Young Minds
+              </h3>
+              <p id="program-detail-desc" class="text-xs sm:text-sm text-slate-600 mt-3 font-light leading-relaxed">
+                At H3F, we believe education is the single most powerful weapon against poverty. Through Project Vidyarthi, we provide targeted educational kits (including backpacks, notebooks, writing materials, and mathematical instruments) to direct students and maintain routine coaching classes after school hours so that no child drops out due to lack of academic support.
+              </p>
+            </div>
+
+            <!-- Core Campaign bullets target lists -->
+            <div class="flex flex-col gap-3">
+              <h4 class="text-[11px] font-bold tracking-widest text-slate-400 uppercase font-mono">Principal Objectives</h4>
+              <ul id="program-detail-objectives" class="flex flex-col gap-3.5 pl-0.5">
+                <!-- Inner HTML populated by Script -->
+              </ul>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+              <div class="p-4 bg-sky-50/50 rounded-2xl border border-sky-100 flex flex-col gap-1.5Packed">
+                <span class="text-[10px] uppercase tracking-wider font-mono font-bold text-sky-700">Target Metrics</span>
+                <p id="program-detail-achievements" class="text-xs sm:text-sm text-slate-700 font-light leading-relaxed">
+                  Over 850 children in Behala and adjoining slum pockets have received full educational kits and direct mentorship.
+                </p>
+              </div>
+
+              <div class="p-4 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col gap-1.5Packed">
+                <span class="text-[10px] uppercase tracking-wider font-mono font-bold text-slate-500">Core Beneficiaries</span>
+                <p id="program-detail-beneficiaries" class="text-xs sm:text-sm text-slate-700 font-light leading-relaxed">
+                  Children aged 5-15 from low-income, single-parent, or daily-wage workers' families.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ==================== GALLERY TAB ==================== -->
+      <div id="view-gallery" class="hidden animate-fadeIn py-16 px-6 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full">
+            Ground Realities
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-2">
+            Masonry Grid Gallery
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-2 font-light">
+            Each photo documents our direct local deliveries, school kit packing, and senior citizen aid drives in Behala, south-west Kolkata.
+          </p>
+        </div>
+
+        <!-- Filter category capsules -->
+        <div class="flex flex-wrap justify-center items-center gap-2 mb-10 pb-2 border-b border-slate-100">
+          <button id="filter-btn-All" onclick="filterGallery('All')" class="px-4.5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all uppercase font-mono cursor-pointer bg-sky-600 text-white shadow-md shadow-sky-100">All</button>
+          <button id="filter-btn-Education" onclick="filterGallery('Education')" class="px-4.5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all uppercase font-mono cursor-pointer bg-slate-100 text-slate-600 hover:bg-slate-200">Education</button>
+          <button id="filter-btn-Food-Relief" onclick="filterGallery('Food Relief')" class="px-4.5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all uppercase font-mono cursor-pointer bg-slate-100 text-slate-600 hover:bg-slate-200">Food Relief</button>
+          <button id="filter-btn-Welfare" onclick="filterGallery('Welfare')" class="px-4.5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all uppercase font-mono cursor-pointer bg-slate-100 text-slate-600 hover:bg-slate-200">Welfare</button>
+          <button id="filter-btn-Elderly-Care" onclick="filterGallery('Elderly Care')" class="px-4.5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all uppercase font-mono cursor-pointer bg-slate-100 text-slate-600 hover:bg-slate-200">Elderly Care</button>
+          <button id="filter-btn-Community" onclick="filterGallery('Community')" class="px-4.5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all uppercase font-mono cursor-pointer bg-slate-100 text-slate-600 hover:bg-slate-200">Community</button>
+        </div>
+
+        <!-- Masonry Photo Grid -->
+        <div id="gallery-masonry-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 auto-rows-[120px] transition-all duration-500">
+          <!-- Filled by Script -->
+        </div>
+
+        <!-- Grid empty fallback -->
+        <div id="gallery-empty-fallback" class="hidden text-center py-24 bg-white border border-slate-100 rounded-3xl max-w-sm mx-auto flex flex-col items-center gap-3">
+          <i data-lucide="alert-circle" class="text-slate-350 w-8 h-8"></i>
+          <span class="text-xs font-bold font-mono text-slate-400 uppercase">Gallery Folder is Clean</span>
+          <p class="text-xs text-slate-500 font-light px-6 leading-relaxed">
+            No live campaign images published in this exact filter slot. Check other folders for uploads.
+          </p>
+        </div>
+
+        <!-- Real Fullscreen Lightbox Frame -->
+        <div id="gallery-lightbox-modal" onclick="closeLightbox()" class="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-md hidden items-center justify-center p-4 sm:p-8 select-none cursor-zoom-out">
+          <div class="relative max-w-4xl w-full flex flex-col gap-4 animate-scaleUp cursor-default" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-12 sm:top-2 right-2 sm:-right-12 z-20 bg-white/10 hover:bg-white/25 border border-white/20 text-white p-2 sm:p-2.5 rounded-full transition-transform active:scale-95 cursor-pointer" aria-label="Close modal">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="w-full max-h-[70vh] bg-slate-900 rounded-2xl overflow-hidden shadow-2xl relative border border-slate-800">
+              <img id="lightbox-img" src="" alt="" class="w-full h-full object-contain object-center max-h-[70vh]" />
+            </div>
+            <div class="flex flex-col gap-1.5 text-white">
+              <span id="lightbox-category" class="bg-sky-600/15 text-sky-400 border border-sky-600/25 text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded w-fit">Category</span>
+              <h4 id="lightbox-title" class="text-base sm:text-lg font-bold tracking-tight text-white leading-snug">Title</h4>
+              <p id="lightbox-description" class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Description</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ==================== DONATE TAB ==================== -->
+      <div id="view-donate" class="hidden animate-fadeIn py-16 px-6 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <span class="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full">
+            Secure Giving Circle
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-2">
+            Make an Immediate Impact
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-2 font-light">
+            We employ direct, hand-delivered field metrics. All funding is 50% tax exempt under section 80G in India.
+          </p>
+        </div>
+
+        <!-- Billing details selection panel components -->
+        <div id="donation-selector-panels" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+          
+          <!-- Donation Cards selection column -->
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <div class="flex justify-between items-center bg-slate-100 p-2.5 rounded-xl border border-slate-200">
+              <span class="text-xs font-bold text-slate-900 font-mono uppercase tracking-wider">Select Sponsor Bracket</span>
+              <button id="custom-toggle-btn" onclick="toggleCustomMode()" class="text-xs font-bold uppercase tracking-wider font-mono px-3 py-1 rounded-full border transition-all cursor-pointer bg-white text-slate-700 hover:bg-slate-100 border-slate-200">
+                Custom Amount
+              </button>
+            </div>
+
+            <!-- Cards selection listing -->
+            <div id="calculation-active-msg" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Sponsor Vidyarthi kit -->
+              <button id="donation-tier-card-tier-1" onclick="selectDonateTier('tier-1')" class="flex flex-col gap-4 p-5 rounded-2xl border-2 text-left transition-all outline-none cursor-pointer border-sky-600 bg-sky-50/20 shadow-sm shadow-sky-50">
+                <div class="flex justify-between items-start">
+                  <div class="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center text-sky-700 font-mono font-bold">₹</div>
+                  <div class="check-container text-sky-600">
+                    <i data-lucide="check-circle" fill="currentColor" class="text-sky-600 bg-white rounded-full w-5 h-5"></i>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <span class="text-lg font-bold font-mono text-slate-900">₹300 INR</span>
+                  <span class="text-xs font-bold text-sky-800 uppercase font-mono">Sponsor Vidyarthi Kit</span>
+                  <p class="text-[11px] text-slate-500 leading-normal font-light">
+                    Funds 1 durable backpack filled with 5 notebooks, pencils, pencil box, and scale instruments.
+                  </p>
+                </div>
+              </button>
+
+              <!-- Sponsor Relief Pack -->
+              <button id="donation-tier-card-tier-2" onclick="selectDonateTier('tier-2')" class="flex flex-col gap-4 p-5 rounded-2xl border-2 text-left transition-all outline-none cursor-pointer border-slate-100 bg-white hover:border-slate-200">
+                <div class="flex justify-between items-start">
+                  <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 font-mono font-bold">₹</div>
+                  <div class="check-container text-sky-600 hidden">
+                    <i data-lucide="check-circle" fill="currentColor" class="text-sky-600 bg-white rounded-full w-5 h-5"></i>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <span class="text-lg font-bold font-mono text-slate-900">₹1,000 INR</span>
+                  <span class="text-xs font-bold text-amber-700 uppercase font-mono">Monthly Nutrition</span>
+                  <p class="text-[11px] text-slate-500 leading-normal font-light">
+                    Supplies family with 10kg Rice, 2kg Atta, 2kg Lentils, 1L cooking oil, basic spices, and hand soap.
+                  </p>
+                </div>
+              </button>
+
+              <!-- Sponsor Elder care -->
+              <button id="donation-tier-card-tier-3" onclick="selectDonateTier('tier-3')" class="flex flex-col gap-4 p-5 rounded-2xl border-2 text-left transition-all outline-none cursor-pointer border-slate-100 bg-white hover:border-slate-200">
+                <div class="flex justify-between items-start">
+                  <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-rose-500 font-mono font-bold">₹</div>
+                  <div class="check-container text-sky-600 hidden">
+                    <i data-lucide="check-circle" fill="currentColor" class="text-sky-600 bg-white rounded-full w-5 h-5"></i>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <span class="text-lg font-bold font-mono text-slate-900">₹1,800 INR</span>
+                  <span class="text-xs font-bold text-rose-700 uppercase font-mono">Quarterly Medicine</span>
+                  <p class="text-[11px] text-slate-500 leading-normal font-light">
+                    Sponsors chronic medication (cardiac, blood pressure, diabetic) for 1 senior citizen for 3 months.
+                  </p>
+                </div>
+              </button>
+
+              <!-- Sponsor Classroom lease -->
+              <button id="donation-tier-card-tier-4" onclick="selectDonateTier('tier-4')" class="flex flex-col gap-4 p-5 rounded-2xl border-2 text-left transition-all outline-none cursor-pointer border-slate-100 bg-white hover:border-slate-200">
+                <div class="flex justify-between items-start">
+                  <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600 font-mono font-bold">₹</div>
+                  <div class="check-container text-sky-600 hidden">
+                    <i data-lucide="check-circle" fill="currentColor" class="text-sky-600 bg-white rounded-full w-5 h-5"></i>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <span class="text-lg font-bold font-mono text-slate-900">₹5,000 INR</span>
+                  <span class="text-xs font-bold text-orange-700 uppercase font-mono">Month Classroom</span>
+                  <p class="text-[11px] text-slate-500 leading-normal font-light">
+                    Covers dry metrics snacks, books, educational rentals, and support for evening study halls.
+                  </p>
+                </div>
+              </button>
+            </div>
+
+            <!-- Placeholder custom panel insert option -->
+            <div id="custom-field-area" class="hidden"></div>
+          </div>
+
+          <!-- Checkout payment simulation gateway -->
+          <div class="lg:col-span-5 bg-white border border-slate-150 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm relative overflow-hidden">
+            <div class="flex flex-col gap-5">
+              <div class="border-b border-slate-100 pb-4">
+                <p class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">Checkout Cart</p>
+                <div class="flex justify-between items-baseline mt-1">
+                  <h3 class="text-slate-900 text-sm font-semibold font-sans">Corporate Trustee Sponsorship</h3>
+                  <span id="total-amount-display" class="text-2xl sm:text-3xl font-mono font-extrabold text-sky-600">₹300</span>
+                </div>
+              </div>
+
+              <!-- Indian domestic transfers UPI barcode panel -->
+              <div class="bg-slate-50 rounded-2xl p-4.5 border border-slate-250 flex items-center gap-4.5">
+                <!-- Direct Inline pure SVG placeholder barcode -->
+                <div class="w-16 h-16 bg-white rounded p-1.5 flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
+                  <svg width="100%" height="100%" viewBox="0 0 100 100" fill="black">
+                    <!-- Standard scan layout simulation -->
+                    <rect x="0" y="0" width="20" height="20" />
+                    <rect x="80" y="0" width="20" height="20" />
+                    <rect x="0" y="80" width="20" height="20" />
+                    <rect x="30" y="30" width="40" height="40" fill="#0c4a6e" />
+                    <rect x="10" y="40" width="10" height="30" />
+                    <rect x="80" y="40" width="10" height="10" />
+                    <rect x="80" y="70" width="10" height="20" />
+                    <rect x="40" y="10" width="30" height="10" />
+                    <rect x="10" y="30" width="10" height="5" />
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1 text-slate-700">
+                  <span class="text-[10px] font-bold font-mono tracking-widest uppercase text-sky-700">Scan & Transfer (UPI)</span>
+                  <p class="text-xs text-slate-650 leading-tight">Instant scanning in any domestic app (GPay, PhonePe, Paytm):</p>
+                  <div class="flex items-center gap-2 mt-1 bg-white px-2 py-1 rounded border border-slate-200 w-fit">
+                    <span class="text-[10.5px] font-mono font-bold text-slate-900">h3f.foundation@okhdfc</span>
+                    <button id="copy-upi-btn" onclick="copyUPIId()" class="text-sky-600 hover:text-sky-700 shrink-0 cursor-pointer outline-none transition-colors" title="Copy UPI address">
+                      <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Secure details billing input submission form -->
+              <form id="donate-submit-form" onsubmit="handleDonateFormSubmit(event)" class="flex flex-col gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label for="donor-name-input" class="text-xs font-bold text-slate-700 font-sans">Donor's Representative Name *</label>
+                  <input type="text" id="donor-name-input" required placeholder="Enter full statutory name" class="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-3 px-4 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-bold text-slate-700 font-sans">Payment Declaration Policy</label>
+                  <p class="text-[10.5px] text-slate-400 leading-relaxed font-light">
+                    H3F is an audited community concern. By clicking "Sponsor Relief", you report a simulated transfer. The server logs the receipt to simulate the donor dashboard.
+                  </p>
+                </div>
+
+                <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm sm:text-base py-3.5 px-4 rounded-full shadow-md shadow-sky-100 active:scale-95 transition-all outline-none mt-2 cursor-pointer">
+                  Acknowledge Simulated Donation
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success receipt page template -->
+        <div id="donation-success-panel" class="hidden max-w-xl mx-auto bg-white border border-slate-150 p-6 sm:p-9 rounded-3xl shadow-lg flex flex-col gap-6 text-center">
+          <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-505 mx-auto text-emerald-600 border border-emerald-100">
+            <i data-lucide="check-circle" class="w-9 h-9"></i>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-xs font-bold font-mono text-emerald-605 tracking-wider uppercase text-emerald-600">Simulated Receipt Generated</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">Thank You For Sponsoring H3F Kolkata</h3>
+            <p class="text-xs text-slate-450 leading-relaxed font-sans font-light">
+              Your contribution creates direct material relief on the ground in Behala slums! Below is your dynamic simulated public trust document.
+            </p>
+          </div>
+
+          <!-- Printed Receipt Card -->
+          <div class="bg-slate-50 rounded-2.5xl p-5 border border-slate-200 text-left flex flex-col gap-3 font-mono text-xs text-slate-705 text-slate-650 max-w-md mx-auto w-full">
+            <div class="flex justify-between items-baseline border-b border-dashed border-slate-300 pb-2.5">
+              <span class="font-bold text-slate-950">H3F PUBLIC TRUST RECEIPT</span>
+              <span id="receipt-id" class="text-[11px] font-bold text-sky-700">H3F-TX-XXXXX</span>
+            </div>
+            <div class="flex flex-col gap-1.5 border-b border-dashed border-slate-300 pb-2.5">
+              <div class="flex justify-between">
+                <span>Benefactor:</span>
+                <span id="receipt-name" class="font-bold text-slate-900">Your Full Name</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Amount Logged:</span>
+                <span id="receipt-amount" class="font-bold text-slate-900">₹300 INR</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Campaign Area:</span>
+                <span id="receipt-impact" class="font-bold text-slate-900">Project Vidyarthi</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1 text-[10.5px] leading-relaxed font-light">
+              <p>Status: Simulated Email Dispatched & Confirmed pro-forma.</p>
+              <p>Certification clause: Issued complying with the statutory exemption guidelines in line with 80G provisions of Income Tax Act.</p>
+            </div>
+          </div>
+
+          <button onclick="resetDonationPortal()" class="bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold text-xs sm:text-sm py-2.5 px-6 rounded-full self-center cursor-pointer outline-none border border-slate-250 transition-all">
+            Return to Portals
+          </button>
+        </div>
+      </div>
+
+
+      <!-- ==================== CONTACT TAB ==================== -->
+      <div id="view-contact" class="hidden animate-fadeIn py-16 px-6 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <span class="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full">
+            Connect With Trustees
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-2">
+            Inquiries & Contact Requests
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-2 font-light">
+            Reside near Behala Tram Depot? Let's connect on field partnerships, food drives, and child coaching hours!
+          </p>
+        </div>
+
+        <!-- Submission and logs board grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+          
+          <!-- Contact filing form desk -->
+          <div class="lg:col-span-6 bg-white border border-slate-150 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm relative">
+            <div class="flex flex-col gap-5">
+              <div class="border-b border-slate-100 pb-3">
+                <p class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 font-bold">Write message</p>
+                <h3 class="text-lg font-bold text-slate-900 mt-0.5">Filing Dispatch Portal</h3>
+              </div>
+
+              <!-- Submission success notice box -->
+              <div id="contact-success-box" class="hidden p-4 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-2xl flex items-start gap-3 animate-scaleUp">
+                <i data-lucide="check-circle" class="text-emerald-505 shrink-0 mt-0.5 w-4 h-4 text-emerald-600"></i>
+                <div class="flex flex-col gap-1 text-xs">
+                  <span class="font-bold">Inquiry Transmitted Successfully</span>
+                  <p class="text-emerald-700/90 font-light leading-relaxed">
+                    The dispatch simulating server processed the payload instantly. Your submission has updated our dynamic logs below!
+                  </p>
+                </div>
+              </div>
+
+              <form id="contact-form" onsubmit="handleContactFormSubmit(event)" class="flex flex-col gap-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <label for="contact-name" class="text-xs font-bold text-slate-700">Full Name *</label>
+                    <input type="text" id="contact-name" required placeholder="Santanu Paul" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3.5 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <label for="contact-email" class="text-xs font-bold text-slate-700">Email Address *</label>
+                    <input type="email" id="contact-email" required placeholder="contact@email.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3.5 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <label for="contact-phone" class="text-xs font-bold text-slate-700">Phone Number</label>
+                    <input type="tel" id="contact-phone" placeholder="+91 82406 00000" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3.5 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <label for="contact-type" class="text-xs font-bold text-slate-700">Inquiry Type *</label>
+                    <select id="contact-type" required class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3.5 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-800">
+                      <option value="Volunteer">Volunteer Participation</option>
+                      <option value="Partnership">Corporate Partnership</option>
+                      <option value="Donation">Exemption Audit Questions</option>
+                      <option value="General">General Inquiry</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-1">
+                  <label for="contact-subject" class="text-xs font-bold text-slate-700">Subject</label>
+                  <input type="text" id="contact-subject" placeholder="Reason for connecting" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3.5 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                </div>
+
+                <div class="flex flex-col gap-1">
+                  <label for="contact-message" class="text-xs font-bold text-slate-700">Message Box *</label>
+                  <textarea id="contact-message" required rows="5" placeholder="Write details about your message here..." class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3.5 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500 leading-relaxed"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xs sm:text-sm py-3 px-4 rounded-full shadow-md active:scale-95 transition-all outline-none mt-2 cursor-pointer flex items-center justify-center gap-2">
+                  <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                  <span>Transmit Payload Sim</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Dynamic Real-time logs dashboard container -->
+          <div class="lg:col-span-6 bg-slate-100/55 border border-slate-200 rounded-3xl p-5 sm:p-7 flex flex-col gap-5 shadow-inner">
+            <div class="flex justify-between items-center border-b border-slate-200 pb-3">
+              <div class="flex flex-col">
+                <span id="logs-active-count" class="text-sm font-extrabold text-slate-900 leading-none">Logs Active (2)</span>
+                <span class="text-[10px] text-slate-400 font-mono mt-1">Simulated Mail Server Console Storage</span>
+              </div>
+              <div class="flex items-center gap-1 bg-sky-950 text-sky-400 text-[10px] uppercase tracking-wider font-semibold font-mono px-2 py-0.5 rounded border border-sky-800">
+                <div class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping"></div>
+                <span>Sync Node Online</span>
+              </div>
+            </div>
+
+            <div id="live-logs-list" class="flex flex-col gap-4 overflow-y-auto max-h-[500px] pr-1">
+              <!-- Rendered by app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="bg-slate-950 text-slate-300 border-t border-slate-900" id="h3f-footer">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <!-- NGO Description Column -->
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-2 select-none">
+            <div class="w-8 h-8 bg-sky-600 rounded-lg flex items-center justify-center text-white font-mono font-bold">
+              H
+            </div>
+            <span class="font-bold text-base tracking-wide text-white uppercase">H3F FOUNDATION</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed font-light">
+            <strong>Hope Heal and Humanity Foundation (H3F)</strong> is a registered, non-profit community trust centered on immediate material relief and childhood coaching in Kolkata, India.
+          </p>
+          <div class="flex items-center gap-2 text-[10px] uppercase font-mono tracking-wider font-semibold text-sky-450 bg-slate-900/40 w-fit px-2.5 py-0.5 rounded border border-slate-800">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-sky-400"></i>
+            <span>80G Exemption Audited</span>
+          </div>
+        </div>
+
+        <!-- Sitemap Navigation Maps -->
+        <div class="flex flex-col gap-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white font-mono">Navigation Link Map</h4>
+          <ul class="flex flex-col gap-2.5 text-xs sm:text-sm">
+            <li><button onclick="setActiveTab('home')" class="hover:text-sky-400 transition-colors capitalize text-left border-b border-transparent hover:border-sky-400/40 pb-0.5 outline-none cursor-pointer">Home</button></li>
+            <li><button onclick="setActiveTab('about')" class="hover:text-sky-450 hover:text-sky-400 transition-colors text-left border-b border-transparent hover:border-sky-400/40 pb-0.5 outline-none cursor-pointer">About Us</button></li>
+            <li><button onclick="setActiveTab('programs')" class="hover:text-sky-450 hover:text-sky-400 transition-colors text-left border-b border-transparent hover:border-sky-400/40 pb-0.5 outline-none cursor-pointer">Our Campaigns</button></li>
+            <li><button onclick="setActiveTab('gallery')" class="hover:text-sky-450 hover:text-sky-400 transition-colors text-left border-b border-transparent hover:border-sky-400/40 pb-0.5 outline-none cursor-pointer">Masonry Grid Gallery</button></li>
+            <li><button onclick="setActiveTab('donate')" class="hover:text-sky-450 hover:text-sky-400 transition-colors text-left border-b border-transparent hover:border-sky-400/40 pb-0.5 outline-none cursor-pointer">Donate</button></li>
+            <li><button onclick="setActiveTab('contact')" class="hover:text-sky-450 hover:text-sky-400 transition-colors text-left border-b border-transparent hover:border-sky-400/40 pb-0.5 outline-none cursor-pointer">Contact Requests</button></li>
+          </ul>
+        </div>
+
+        <!-- Operational Focus Areas -->
+        <div class="flex flex-col gap-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white font-mono">Our Campaigns</h4>
+          <ul class="flex flex-col gap-2.5 text-xs text-slate-400">
+            <li class="flex flex-col gap-0.5">
+              <span class="font-semibold text-slate-300">Project Vidyarthi:</span>
+              <span class="font-light">School kit backpack distributions</span>
+            </li>
+            <li class="flex flex-col gap-0.5">
+              <span class="font-semibold text-slate-300">Project Anna:</span>
+              <span class="font-light">Dry monthly rations & nutrition help</span>
+            </li>
+            <li class="flex flex-col gap-0.5">
+              <span class="font-semibold text-slate-300">Project Dignity:</span>
+              <span class="font-light">Chronic elderly medication sponsorships</span>
+            </li>
+            <li class="flex flex-col gap-0.5">
+              <span class="font-semibold text-slate-300">Project Suraksha:</span>
+              <span class="font-light">Childcare activity rooms</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Column -->
+        <div class="flex flex-col gap-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white font-mono">Registered Office</h4>
+          <ul class="flex flex-col gap-3 text-xs">
+            <li class="flex items-start gap-2">
+              <i data-lucide="map-pin" class="text-sky-400 mt-0.5 shrink-0 w-4 h-4"></i>
+              <span class="font-light leading-relaxed">
+                Behala Tram Depot Area, Behala, Kolkata, West Bengal - 700061
+              </span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="phone" class="text-sky-400 shrink-0 w-3.5 h-3.5"></i>
+              <a href="tel:+918240603991" class="hover:text-sky-400 font-mono">+91 82406 03991</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="mail" class="text-sky-400 shrink-0 w-3.5 h-3.5"></i>
+              <a href="mailto:contact@h3f.org.in" class="hover:text-sky-400 font-mono">contact@h3f.org.in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Statutory copyright footer -->
+      <div class="border-t border-slate-900 bg-slate-950 py-6 px-4 text-center text-[11px] text-slate-500 font-mono">
+        <p class="max-w-4xl mx-auto leading-normal text-slate-400">
+          © 2026 HOPE HEAL AND HUMANITY FOUNDATION (H3F) TRUST. All Rights Reserved. Reg No: S0024953/WB.
+          <br class="hidden sm:block" />
+          Designed in conformity with supreme NGO sitemap standards for structural transparency.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Controllers logic file link -->
+    <script src="app.js"></script>
   </body>
 </html>
-
