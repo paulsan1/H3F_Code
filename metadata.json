@@ -1,0 +1,6 @@
+{
+  "name": "H3F Foundation",
+  "description": "Official professional portal for Hope Heal and Humanity Foundation (H3F) featuring an NGO home profile, upcoming events, contact request system with Kolkata map, about section, donation options, and a masonry gallery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
