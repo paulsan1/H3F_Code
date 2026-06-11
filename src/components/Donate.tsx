@@ -272,7 +272,7 @@ export default function Donate() {
 
                 <div className="flex-1 text-center sm:text-left flex flex-col gap-1.5 w-full">
                   <h4 className="text-xs font-bold text-slate-700">
-                    Official Trust UPI ID:
+                    Official UPI ID:
                   </h4>
                   {/* Copiable interactive block */}
                   <div className="flex items-center justify-between bg-white border border-slate-250 border-slate-200 rounded-lg p-1.5 shadow-sm">
@@ -293,7 +293,7 @@ export default function Donate() {
                     </button>
                   </div>
                   <p className="text-[10px] text-slate-550 leading-snug mt-1">
-                    Scan via GPay, PhonePe, Paytm, or BHIM apps. Registered under <span className="font-semibold text-slate-700">Hope Heal and Humanity Foundation</span> Trust.
+                    Scan via GPay, PhonePe, Paytm, or BHIM apps. Registered under <span className="font-semibold text-slate-700">Hope Heal and Humanity Foundation</span>.
                   </p>
                 </div>
               </div>
@@ -349,7 +349,7 @@ export default function Donate() {
               <div className="bg-slate-50 grid grid-cols-2 gap-3.5 p-4 rounded-xl border border-slate-100 text-xs text-slate-600">
                 <div className="flex flex-col gap-0.5">
                   <span className="text-[10px] font-mono text-slate-400 uppercase">Beneficiary name</span>
-                  <span className="font-semibold text-slate-800 leading-snug">HOPE HEAL AND HUMANITY FOUNDATION TRUST</span>
+                  <span className="font-semibold text-slate-800 leading-snug">HOPE HEAL AND HUMANITY FOUNDATION</span>
                 </div>
                 <div className="flex flex-col gap-0.5">
                   <span className="text-[10px] font-mono text-slate-400 uppercase">Bank / Branch</span>

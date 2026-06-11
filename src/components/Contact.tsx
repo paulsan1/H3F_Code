@@ -74,14 +74,14 @@ export default function Contact({ contactLogs, onAddContactLog }: ContactProps) 
       {/* Narrative Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-2">
         <span className="text-xs font-bold text-sky-600 font-mono tracking-widest uppercase bg-sky-50 px-3 py-1 rounded-full">
-          Connect With Trustees
+          Connect With Core Team
         </span>
         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-2">
           Contact Us & Submit Requests
         </h2>
         <div className="h-1 w-16 bg-sky-600 rounded-full mt-2"></div>
         <p className="text-sm text-slate-600 leading-relaxed mt-4">
-          Fill out our secure inquiry console to request assistance, register as a volunteer, or coordinate corporate partnerships with our trust.
+          Fill out our secure inquiry console to request assistance, register as a volunteer, or coordinate corporate partnerships with our organization.
         </p>
       </div>
 
@@ -94,8 +94,8 @@ export default function Contact({ contactLogs, onAddContactLog }: ContactProps) 
               <Compass size={18} className="text-sky-600" />
               <span>Inquiry Submission Portal</span>
             </h3>
-            <p className="text-xs text-slate-500">
-              Your message is formulated as a secure email mockup packet and routed directly to H3F trustees.
+            <p className="text-xs text-slate-505 text-slate-500">
+              Your message is formulated as a secure email mockup packet and routed directly to H3F supervisors.
             </p>
           </div>
 
@@ -195,7 +195,7 @@ export default function Contact({ contactLogs, onAddContactLog }: ContactProps) 
                 <div className="flex flex-col gap-0.5 ml-1">
                   <span className="font-bold text-sky-800">Email Request Simulated!</span>
                   <span className="text-slate-600 text-[11px] leading-relaxed">
-                    We successfully simulated dispatch to trust supervisors. Scroll to the <span className="font-semibold text-slate-800">Live Requests Monitor</span> bottom bar to verify the data log in real time!
+                    We successfully simulated dispatch to supervisors. Scroll to the <span className="font-semibold text-slate-800">Live Requests Monitor</span> bottom bar to verify the data log in real time!
                   </span>
                 </div>
               </div>

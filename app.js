@@ -142,7 +142,7 @@ const TEAM_DATA = [
   {
     id: "team-1",
     name: "Dr. Anirban Choudhury",
-    role: "President & Chief Medical Trustee",
+    role: "President & Chief Medical Director",
     bio: "Pioneering community geriatric health for 14 years. Dr. Choudhury orchestrates dry health drives, senior care units, and directs our elderly welfare program.",
     imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=300"
   },
@@ -224,7 +224,7 @@ let mobileMenuOpen = false;
 let contactLogs = [
   {
     id: "seed-1",
-    name: "Santanu Paul (General Trustee)",
+    name: "Santanu Paul (General Director)",
     email: "santanupaul123@gmail.com",
     phone: "+91 82406 03991",
     subject: "Welcome to H3F New Web Portal",

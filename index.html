@@ -12,6 +12,89 @@
     <!-- Tailwind CSS v3/v4 Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+      const THEME_SHADES = {
+        sky: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+        },
+        emerald: {
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
+        },
+        rose: {
+          50: '#fff1f2',
+          100: '#ffe4e6',
+          200: '#fecdd3',
+          300: '#fda4af',
+          400: '#fb7185',
+          500: '#f43f5e',
+          600: '#e11d48',
+          700: '#be123c',
+          800: '#9f1239',
+          900: '#881337',
+        },
+        amber: {
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
+        }
+      };
+
+      function setThemeColor(themeKey) {
+        const shades = THEME_SHADES[themeKey] || THEME_SHADES.sky;
+        const root = document.documentElement;
+        for (const [shade, value] of Object.entries(shades)) {
+          root.style.setProperty(`--color-sky-${shade}`, value);
+        }
+        localStorage.setItem('h3f_theme_color', themeKey);
+        
+        // Highlight active dot
+        document.querySelectorAll('[data-theme-btn]').forEach(btn => {
+          if (btn.getAttribute('data-theme-btn') === themeKey) {
+            btn.classList.add('ring-2', 'ring-white', 'scale-110');
+            btn.classList.remove('opacity-70');
+          } else {
+            btn.classList.remove('ring-2', 'ring-white', 'scale-110');
+            btn.classList.add('opacity-70');
+          }
+        });
+      }
+
+      // Initial theme loading
+      const initialTheme = localStorage.getItem('h3f_theme_color') || 'sky';
+      const initialShades = THEME_SHADES[initialTheme] || THEME_SHADES.sky;
+      const rootEl = document.documentElement;
+      for (const [shade, value] of Object.entries(initialShades)) {
+        rootEl.style.setProperty(`--color-sky-${shade}`, value);
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        setThemeColor(initialTheme);
+      });
+
       tailwind.config = {
         theme: {
           extend: {
@@ -21,16 +104,16 @@
             },
             colors: {
               sky: {
-                50: '#f0f9ff',
-                100: '#e0f2fe',
-                200: '#bae6fd',
-                300: '#7dd3fc',
-                400: '#38bdf8',
-                500: '#0ea5e9',
-                600: '#0284c7',
-                700: '#0369a1',
-                800: '#075985',
-                900: '#0c4a6e',
+                50: 'var(--color-sky-50, #f0f9ff)',
+                100: 'var(--color-sky-100, #e0f2fe)',
+                200: 'var(--color-sky-200, #bae6fd)',
+                300: 'var(--color-sky-300, #7dd3fc)',
+                400: 'var(--color-sky-400, #38bdf8)',
+                500: 'var(--color-sky-500, #0ea5e9)',
+                600: 'var(--color-sky-600, #0284c7)',
+                700: 'var(--color-sky-700, #0369a1)',
+                800: 'var(--color-sky-800, #075985)',
+                900: 'var(--color-sky-900, #0c4a6e)',
               },
               slate: {
                 850: '#1e293b',
@@ -77,8 +160,8 @@
     <!-- Header Component -->
     <header class="w-full z-50 flex flex-col" id="h3f-header">
       <!-- Top Utility Bar -->
-      <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center border-b border-slate-800 gap-2">
-        <div class="flex flex-wrap justify-center sm:justify-start items-center gap-4 sm:gap-6">
+      <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center border-b border-slate-800 gap-3">
+        <div class="flex flex-wrap justify-center sm:justify-start items-center gap-4 sm:gap-6 w-full sm:w-auto">
           <a href="tel:+918240603991" class="flex items-center gap-1.5 hover:text-sky-400 font-mono transition-colors">
             <i data-lucide="phone" class="text-sky-400 w-3.5 h-3.5"></i>
             <span>+91 82406 03991</span>
@@ -92,11 +175,23 @@
             <span>Behala, Kolkata - 700061</span>
           </div>
         </div>
-        <div class="hidden md:flex items-center gap-3">
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-sky-950 text-sky-400 border border-sky-800 font-sans">
-            ● 80G Tax Exempt
-          </span>
-          <span class="text-slate-400 font-mono">Reg No: S0024953/WB</span>
+        <div class="flex items-center justify-between sm:justify-end gap-5 w-full sm:w-auto">
+          <div class="hidden md:flex items-center gap-3">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-sky-950 text-sky-400 border border-sky-800 font-sans">
+              ● 80G Tax Exempt
+            </span>
+            <span class="text-slate-400 font-mono">Reg No: S0024953/WB</span>
+          </div>
+          <!-- Theme Toggler -->
+          <div class="flex items-center gap-2 bg-slate-950 py-1 px-2.5 rounded-full border border-slate-800 shadow-inner">
+            <span class="text-[10px] text-slate-400 font-mono select-none">Theme:</span>
+            <div class="flex items-center gap-1.5">
+              <button onclick="setThemeColor('sky')" data-theme-btn="sky" class="w-3 h-3 rounded-full bg-sky-500 hover:scale-125 transition-transform duration-200 border border-white/20 active:scale-95 cursor-pointer" title="Classic Sky"></button>
+              <button onclick="setThemeColor('emerald')" data-theme-btn="emerald" class="w-3 h-3 rounded-full bg-emerald-500 hover:scale-125 transition-transform duration-200 border border-white/20 active:scale-95 cursor-pointer" title="Hopeful Emerald"></button>
+              <button onclick="setThemeColor('rose')" data-theme-btn="rose" class="w-3 h-3 rounded-full bg-rose-500 hover:scale-125 transition-transform duration-200 border border-white/20 active:scale-95 cursor-pointer" title="Caring Rose"></button>
+              <button onclick="setThemeColor('amber')" data-theme-btn="amber" class="w-3 h-3 rounded-full bg-amber-500 hover:scale-125 transition-transform duration-200 border border-white/20 active:scale-95 cursor-pointer" title="Warm Amber"></button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -104,39 +199,14 @@
       <div class="bg-white/95 backdrop-blur-md sticky top-0 border-b border-slate-200 shadow-sm px-4 sm:px-8 py-4 flex justify-between items-center">
         <!-- Brand/Logo Section -->
         <div onclick="setActiveTab('home')" class="flex items-center gap-3 group cursor-pointer select-none">
-          <!-- Logo SVG -->
-          <svg width="42" height="42" viewBox="0 0 600 500" fill="none" class="group-hover:scale-105 transition-transform duration-300 shrink-0">
-            <g id="figure-cyan">
-              <circle cx="140" cy="315" r="28" fill="#00A8C5" />
-              <path d="M100 285 C140 230, 260 235, 287 285 C230 290, 190 350, 180 370 C165 310, 120 290, 100 285 Z" fill="#00A8C5" />
-            </g>
-            <g id="figure-green">
-              <circle cx="160" cy="185" r="28" fill="#43A047" />
-              <path d="M140 120 C185 130, 245 200, 285 280 C230 270, 190 220, 185 240 C170 190, 150 140, 140 120 Z" fill="#43A047" />
-            </g>
-            <g id="figure-lime">
-              <circle cx="280" cy="110" r="28" fill="#9CCC65" />
-              <path d="M295 60 C290 120, 230 160, 240 260 C260 250, 310 180, 340 110 C325 90, 310 75, 295 60 Z" fill="#9CCC65" />
-            </g>
-            <g id="figure-yellow">
-              <circle cx="430" cy="135" r="28" fill="#FFD54F" />
-              <path d="M495 120 C465 160, 410 230, 340 263 C378 220, 375 160, 380 150 C410 150, 465 130, 495 120 Z" fill="#FFD54F" />
-            </g>
-            <g id="figure-orange">
-              <circle cx="510" cy="240" r="28" fill="#FB8C00" />
-              <path d="M555 260 C535 290, 460 300, 350 270 C410 250, 440 200, 455 180 C480 205, 520 230, 555 260 Z" fill="#FB8C00" />
-            </g>
-            <g id="waves-red">
-              <path d="M120 410 C210 330, 360 280, 520 295 C410 320, 280 370, 135 450 C130 435, 125 422, 120 410 Z" fill="#E53935" />
-              <path d="M150 450 C210 400, 360 350, 538 335 C410 370, 260 410, 150 495 Z" fill="#E53935" />
-            </g>
-          </svg>
+          <!-- Logo Image -->
+          <img src="logo.svg" alt="H3F Logo" class="w-[42px] h-[42px] object-contain group-hover:scale-105 transition-transform duration-300 shrink-0" referrerPolicy="no-referrer" />
           <div class="flex flex-col">
             <h1 class="text-xs sm:text-sm font-extrabold tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors uppercase leading-tight">
               Hope Heal and Humanity Foundation (H3F)
             </h1>
             <p class="text-[10px] sm:text-xs font-semibold tracking-wide text-slate-500 capitalize leading-snug">
-              Lend a hand to bring a smile <span class="text-sky-500 font-bold mx-1">●</span> Kolkata trust
+              Lend a hand to bring a smile <span class="text-sky-500 font-bold mx-1">●</span> Kolkata organization
             </p>
           </div>
         </div>
@@ -216,7 +286,7 @@
             </h2>
 
             <p class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
-              The <span class="font-semibold text-white">Hope Heal and Humanity Foundation (H3F)</span> is a registered NGO community trust committed to lifting the marginalized pockets in south Kolkata. Discover our programs and track our direct local campaigns.
+              The <span class="font-semibold text-white">Hope Heal and Humanity Foundation (H3F)</span> is a registered NGO community organization committed to lifting the marginalized pockets in south Kolkata. Discover our programs and track our direct local campaigns.
             </p>
 
             <div class="flex flex-wrap items-center gap-4 mt-2">
@@ -333,14 +403,14 @@
               Corporate Governance
             </span>
             <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Hope Heal and Humanity Foundation Trust
+              Hope Heal and Humanity Foundation
             </h2>
-            <p class="text-sm text-slate-400 font-mono">Registered Public Trust Board ● Reg ID: S0024953/WB</p>
+            <p class="text-sm text-slate-400 font-mono">Registered Public NGO Board ● Reg ID: S0024953/WB</p>
           </div>
           <div class="lg:col-span-1 hidden lg:block h-32 w-px bg-slate-200 justify-self-center"></div>
           <div class="lg:col-span-6 flex flex-col gap-4 text-sm sm:text-base font-light text-slate-600 leading-relaxed">
             <p>
-              Hope Heal and Humanity Foundation (H3F) is a registered, non-profit community trust centered on immediate material relief and childhood coaching in Kolkata, India. Founded during local challenges by professional trustees, we operate directly to build local resilience.
+              Hope Heal and Humanity Foundation (H3F) is a registered, non-profit community organization centered on immediate material relief and childhood coaching in Kolkata, India. Founded during local challenges by professional coordinators, we operate directly to build local resilience.
             </p>
             <p class="font-normal text-slate-800">
               We operate with 100% financial auditing standards. Every single rupee received is logged, matched against active project inventory invoices, and processed directly.
@@ -402,17 +472,17 @@
           </div>
         </div>
 
-        <!-- Team Trustee Section -->
+        <!-- Team Management Section -->
         <div id="about-team-section" class="pt-10">
           <div class="max-w-xl mb-12">
             <span class="text-xs font-bold font-mono text-sky-600 uppercase tracking-wider">The Board on the Ground</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 mt-1">Team of Trustees & Coordinators</h3>
+            <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 mt-1">Team of Directors & Coordinators</h3>
             <p class="text-sm text-slate-500 mt-2 font-light">
               H3F is steered by local community leaders, medical professionals, and educators offering their skills entirely pro-bono.
             </p>
           </div>
 
-          <!-- Trustee Cards -->
+          <!-- Leader Cards -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="flex flex-col gap-4 group">
               <div class="aspect-square w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
@@ -420,7 +490,7 @@
               </div>
               <div class="flex flex-col gap-1.5">
                 <h4 class="text-lg font-bold text-slate-900">Dr. Anirban Choudhury</h4>
-                <p class="text-xs font-mono font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded w-fit">President & Chief Medical Trustee</p>
+                <p class="text-xs font-mono font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded w-fit">President & Chief Medical Director</p>
                 <p class="text-xs text-slate-600 font-light leading-relaxed">
                   Pioneering community geriatric health for 14 years. Dr. Choudhury orchestrates dry health drives, senior care units, and directs our elderly welfare program.
                 </p>
@@ -738,7 +808,7 @@
               <div class="border-b border-slate-100 pb-4">
                 <p class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">Checkout Cart</p>
                 <div class="flex justify-between items-baseline mt-1">
-                  <h3 class="text-slate-900 text-sm font-semibold font-sans">Corporate Trustee Sponsorship</h3>
+                  <h3 class="text-slate-900 text-sm font-semibold font-sans">Corporate Sponsorship</h3>
                   <span id="total-amount-display" class="text-2xl sm:text-3xl font-mono font-extrabold text-sky-600">₹300</span>
                 </div>
               </div>
@@ -802,14 +872,14 @@
             <span class="text-xs font-bold font-mono text-emerald-605 tracking-wider uppercase text-emerald-600">Simulated Receipt Generated</span>
             <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">Thank You For Sponsoring H3F Kolkata</h3>
             <p class="text-xs text-slate-450 leading-relaxed font-sans font-light">
-              Your contribution creates direct material relief on the ground in Behala slums! Below is your dynamic simulated public trust document.
+              Your contribution creates direct material relief on the ground in Behala slums! Below is your dynamic simulated public document.
             </p>
           </div>
 
           <!-- Printed Receipt Card -->
           <div class="bg-slate-50 rounded-2.5xl p-5 border border-slate-200 text-left flex flex-col gap-3 font-mono text-xs text-slate-705 text-slate-650 max-w-md mx-auto w-full">
             <div class="flex justify-between items-baseline border-b border-dashed border-slate-300 pb-2.5">
-              <span class="font-bold text-slate-950">H3F PUBLIC TRUST RECEIPT</span>
+              <span class="font-bold text-slate-950">H3F PUBLIC RECEIPT</span>
               <span id="receipt-id" class="text-[11px] font-bold text-sky-700">H3F-TX-XXXXX</span>
             </div>
             <div class="flex flex-col gap-1.5 border-b border-dashed border-slate-300 pb-2.5">
@@ -843,7 +913,7 @@
       <div id="view-contact" class="hidden animate-fadeIn py-16 px-6 sm:px-8 max-w-7xl mx-auto">
         <div class="text-center max-w-xl mx-auto mb-10">
           <span class="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full">
-            Connect With Trustees
+            Connect With Core Team
           </span>
           <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-2">
             Inquiries & Contact Requests
@@ -948,13 +1018,11 @@
         <!-- NGO Description Column -->
         <div class="flex flex-col gap-4">
           <div class="flex items-center gap-2 select-none">
-            <div class="w-8 h-8 bg-sky-600 rounded-lg flex items-center justify-center text-white font-mono font-bold">
-              H
-            </div>
+            <img src="logo.svg" alt="H3F Logo" class="w-8 h-8 object-contain" referrerPolicy="no-referrer" />
             <span class="font-bold text-base tracking-wide text-white uppercase">H3F FOUNDATION</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed font-light">
-            <strong>Hope Heal and Humanity Foundation (H3F)</strong> is a registered, non-profit community trust centered on immediate material relief and childhood coaching in Kolkata, India.
+            <strong>Hope Heal and Humanity Foundation (H3F)</strong> is a registered, non-profit community organization centered on immediate material relief and childhood coaching in Kolkata, India.
           </p>
           <div class="flex items-center gap-2 text-[10px] uppercase font-mono tracking-wider font-semibold text-sky-450 bg-slate-900/40 w-fit px-2.5 py-0.5 rounded border border-slate-800">
             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-sky-400"></i>
@@ -1023,7 +1091,7 @@
       <!-- Statutory copyright footer -->
       <div class="border-t border-slate-900 bg-slate-950 py-6 px-4 text-center text-[11px] text-slate-500 font-mono">
         <p class="max-w-4xl mx-auto leading-normal text-slate-400">
-          © 2026 HOPE HEAL AND HUMANITY FOUNDATION (H3F) TRUST. All Rights Reserved. Reg No: S0024953/WB.
+          © 2026 HOPE HEAL AND HUMANITY FOUNDATION (H3F). All Rights Reserved. Reg No: S0024953/WB.
           <br class="hidden sm:block" />
           Designed in conformity with supreme NGO sitemap standards for structural transparency.
         </p>

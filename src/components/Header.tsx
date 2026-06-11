@@ -14,6 +14,33 @@ interface HeaderProps {
 
 export default function Header({ activeTab, setActiveTab }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeTheme, setActiveTheme] = useState(() => {
+    return localStorage.getItem("h3f_theme_color") || "sky";
+  });
+
+  const handleSetThemeColor = (themeKey: string) => {
+    setActiveTheme(themeKey);
+    localStorage.setItem("h3f_theme_color", themeKey);
+    const THEME_SHADES_DATA: any = {
+      sky: {
+        50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e',
+      },
+      emerald: {
+        50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b',
+      },
+      rose: {
+        50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 300: '#fda4af', 400: '#fb7185', 500: '#f43f5e', 600: '#e11d48', 700: '#be123c', 800: '#9f1239', 900: '#881337',
+      },
+      amber: {
+        50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309', 800: '#92400e', 900: '#78350f',
+      }
+    };
+    const shades = THEME_SHADES_DATA[themeKey] || THEME_SHADES_DATA.sky;
+    const root = document.documentElement;
+    Object.entries(shades).forEach(([shade, value]: any) => {
+      root.style.setProperty(`--color-sky-${shade}`, value);
+    });
+  };
 
   const navigations = [
     { id: "home", label: "Home" },
@@ -27,8 +54,8 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
   return (
     <header className="w-full z-50 flex flex-col" id="h3f-header">
       {/* Top Utility Bar */}
-      <div className="bg-slate-900 text-slate-200 text-xs py-2 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center border-b border-slate-800 gap-2">
-        <div className="flex flex-wrap justify-center sm:justify-start items-center gap-4 sm:gap-6">
+      <div className="bg-slate-900 text-slate-200 text-xs py-2 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center border-b border-slate-800 gap-3">
+        <div className="flex flex-wrap justify-center sm:justify-start items-center gap-4 sm:gap-6 w-full sm:w-auto">
           <a
             href="tel:+918240603991"
             className="flex items-center gap-1.5 hover:text-sky-400 font-mono transition-colors"
@@ -48,11 +75,23 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
             <span>Behala, Kolkata - 700061</span>
           </div>
         </div>
-        <div className="hidden md:flex items-center gap-3">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-sky-950 text-sky-400 border border-sky-800 font-sans">
-            ● 80G Tax Exempt
-          </span>
-          <span className="text-slate-400">Reg No: S0024953/WB</span>
+        <div className="flex items-center justify-between sm:justify-end gap-5 w-full sm:w-auto mt-2 sm:mt-0">
+          <div className="hidden md:flex items-center gap-3">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-sky-950 text-sky-400 border border-sky-800 font-sans">
+              ● 80G Tax Exempt
+            </span>
+            <span className="text-slate-400">Reg No: S0024953/WB</span>
+          </div>
+          {/* Theme Toggler */}
+          <div className="flex items-center gap-2 bg-slate-950 py-1 px-2.5 rounded-full border border-slate-800 shadow-inner">
+            <span className="text-[10px] text-slate-400 font-mono select-none">Theme:</span>
+            <div className="flex items-center gap-1.5">
+              <button onClick={() => handleSetThemeColor('sky')} className={`w-3 h-3 rounded-full bg-sky-500 hover:scale-125 transition-transform duration-200 border border-white/20 active:scale-95 cursor-pointer ${activeTheme === 'sky' ? 'ring-2 ring-white scale-110' : 'opacity-70'}`} title="Classic Sky"></button>
+              <button onClick={() => handleSetThemeColor('emerald')} className={`w-3 h-3 rounded-full bg-emerald-500 hover:scale-125 transition-transform duration-200 border border-white/20 active:scale-95 cursor-pointer ${activeTheme === 'emerald' ? 'ring-2 ring-white scale-110' : 'opacity-70'}`} title="Hopeful Emerald"></button>
+              <button onClick={() => handleSetThemeColor('rose')} className={`w-3 h-3 rounded-full bg-rose-500 hover:scale-125 transition-transform duration-200 border border-white/20 active:scale-95 cursor-pointer ${activeTheme === 'rose' ? 'ring-2 ring-white scale-110' : 'opacity-70'}`} title="Caring Rose"></button>
+              <button onClick={() => handleSetThemeColor('amber')} className={`w-3 h-3 rounded-full bg-amber-500 hover:scale-125 transition-transform duration-200 border border-white/20 active:scale-95 cursor-pointer ${activeTheme === 'amber' ? 'ring-2 ring-white scale-110' : 'opacity-70'}`} title="Warm Amber"></button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -74,7 +113,7 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
               Hope Heal and Humanity Foundation (H3F)
             </h1>
             <p className="text-[10px] sm:text-xs font-semibold tracking-wide text-slate-500 capitalize leading-snug">
-              Lend a hand to bring a smile <span className="text-sky-500 font-bold mx-1">●</span> Kolkata trust
+              Lend a hand to bring a smile <span className="text-sky-500 font-bold mx-1">●</span> Kolkata organization
             </p>
           </div>
         </div>

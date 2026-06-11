@@ -63,7 +63,7 @@ export default function About() {
         </h2>
         <div className="h-1 w-16 bg-sky-600 rounded-full mt-2"></div>
         <p className="text-base text-slate-600 mt-4 leading-relaxed font-sans">
-          Founded in Kolkata, **Hope Heal and Humanity Foundation (H3F)** serves as an actionable, non-profit community trust centered on the immediate, tangible relief of absolute distress. We are non-sectarian, completely audited, and run by local volunteers.
+          Founded in Kolkata, **Hope Heal and Humanity Foundation (H3F)** serves as an actionable, non-profit community organization centered on the immediate, tangible relief of absolute distress. We are non-sectarian, completely audited, and run by local volunteers.
         </p>
       </div>
 
@@ -87,7 +87,7 @@ export default function About() {
               <span>Full Governance & Tax Exemption Compliance</span>
             </h4>
             <p className="text-xs text-slate-505 text-slate-500 leading-relaxed">
-              We operate under full registration guidelines of the India Trusts Act, with approvals including IT Section 80G (granting 50% tax deductions to individual/corporate donors), making our finances completely open to third-party audits.
+              We operate under full registration guidelines of public society acts, with approvals including IT Section 80G (granting 50% tax deductions to individual/corporate donors), making our finances completely open to third-party audits.
             </p>
           </div>
         </div>
@@ -150,7 +150,7 @@ export default function About() {
       {/* Meet Team Members Card segment */}
       <div className="border-t border-slate-200/60 pt-20">
         <div className="text-center max-w-2xl mx-auto mb-12 flex flex-col items-center gap-2">
-          <span className="text-xs font-bold text-sky-600 font-mono uppercase bg-sky-50 px-3 py-1 rounded-full">Leadership & Core Trustees</span>
+          <span className="text-xs font-bold text-sky-600 font-mono uppercase bg-sky-50 px-3 py-1 rounded-full">Leadership & Core Team</span>
           <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950 mt-2">
             Meet the Heart of H3F
           </h3>
@@ -177,7 +177,7 @@ export default function About() {
                   />
                 </div>
                 <div className="absolute -bottom-1 right-2 bg-sky-600 text-white px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider scale-95 shadow-sm">
-                  Trustee
+                  Director
                 </div>
               </div>
 

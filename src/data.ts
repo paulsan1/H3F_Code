@@ -143,7 +143,7 @@ export const TEAM_DATA: TeamMember[] = [
   {
     id: "team-1",
     name: "Dr. Anirban Choudhury",
-    role: "President & Chief Medical Trustee",
+    role: "President & Chief Medical Director",
     bio: "Pioneering community geriatric health for 14 years. Dr. Choudhury orchestrates dry health drives, senior care units, and directs our elderly welfare program.",
     imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=300" // Professional male avatar
   },

@@ -26,7 +26,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
             </span>
           </div>
           <p className="text-xs text-slate-400 leading-relaxed font-light">
-            **Hope Heal and Humanity Foundation (H3F)** is a registered, non-profit community trust centered on immediate material relief and childhood coaching in Kolkata, India.
+            **Hope Heal and Humanity Foundation (H3F)** is a registered, non-profit community organization centered on immediate material relief and childhood coaching in Kolkata, India.
           </p>
           <div className="flex items-center gap-1.5 text-[10px] uppercase font-mono tracking-wider font-semibold text-sky-400 bg-slate-900/40 w-fit px-2 py-0.5 rounded border border-slate-800 font-sans">
             <ShieldCheck size={12} />
@@ -109,7 +109,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
       {/* Under footer bar */}
       <div className="border-t border-slate-900 bg-slate-950 py-6 px-4 text-center text-[11px] text-slate-500 font-mono">
         <p className="max-w-4xl mx-auto leading-normal text-slate-400">
-          © 2026 HOPE HEAL AND HUMANITY FOUNDATION (H3F) TRUST. All Rights Reserved. Reg No: S0024953/WB.
+          © 2026 HOPE HEAL AND HUMANITY FOUNDATION (H3F). All Rights Reserved. Reg No: S0024953/WB.
           <br className="hidden sm:block" />
           Designed in conformity with supreme NGO sitemap standards for structural transparency.
         </p>

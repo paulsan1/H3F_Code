@@ -31,7 +31,7 @@ export default function App() {
     return [
       {
         id: "seed-1",
-        name: "Santanu Paul (General Trustee)",
+        name: "Santanu Paul (General Director)",
         email: "santanupaul123@gmail.com",
         phone: "+91 82406 03991",
         subject: "Welcome to H3F New Web Portal",
