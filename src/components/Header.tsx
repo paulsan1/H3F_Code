@@ -45,7 +45,7 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
   const navigations = [
     { id: "home", label: "Home" },
     { id: "about", label: "About Us" },
-    { id: "programs", label: "Our Programs" },
+    { id: "programs", label: "🌱 Our Journey" },
     { id: "gallery", label: "Masonry Gallery" },
     { id: "donate", label: "Donate" },
     { id: "contact", label: "Contact Us" }

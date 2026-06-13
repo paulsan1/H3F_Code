@@ -215,7 +215,7 @@
         <nav class="hidden lg:flex items-center gap-1">
           <button id="nav-link-home" onclick="setActiveTab('home')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-sky-600 border-b-2 border-sky-600 rounded-none pb-1 pt-1">Home</button>
           <button id="nav-link-about" onclick="setActiveTab('about')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">About Us</button>
-          <button id="nav-link-programs" onclick="setActiveTab('programs')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">Our Programs</button>
+          <button id="nav-link-programs" onclick="setActiveTab('programs')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">🌱 Our Journey</button>
           <button id="nav-link-gallery" onclick="setActiveTab('gallery')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">Masonry Gallery</button>
           <button id="nav-link-donate" onclick="setActiveTab('donate')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">Donate</button>
           <button id="nav-link-contact" onclick="setActiveTab('contact')" class="relative px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-sky-600">Contact Us</button>
@@ -242,7 +242,7 @@
       <div id="mobile-drawer" class="lg:hidden bg-white border-b border-slate-200 py-4 px-4 flex flex-col gap-1 shadow-inner hidden animate-fadeIn">
         <button id="mobile-nav-link-home" onclick="setActiveTab('home')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all bg-sky-50 text-sky-700">Home</button>
         <button id="mobile-nav-link-about" onclick="setActiveTab('about')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">About Us</button>
-        <button id="mobile-nav-link-programs" onclick="setActiveTab('programs')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">Our Programs</button>
+        <button id="mobile-nav-link-programs" onclick="setActiveTab('programs')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">🌱 Our Journey</button>
         <button id="mobile-nav-link-gallery" onclick="setActiveTab('gallery')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">Masonry Gallery</button>
         <button id="mobile-nav-link-donate" onclick="setActiveTab('donate')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">Donate</button>
         <button id="mobile-nav-link-contact" onclick="setActiveTab('contact')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all text-slate-700 hover:bg-slate-50 hover:text-sky-600">Contact Us</button>
@@ -405,7 +405,7 @@
             <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
               Hope Heal and Humanity Foundation
             </h2>
-            <p class="text-sm text-slate-400 font-mono">Registered Public NGO Board ● Reg ID: S0024953/WB</p>
+            <p class="text-sm text-slate-400 font-mono">● Reg ID: 190100470   <br/> ● Darpan ID: WB/2025/0489562</p>
           </div>
           <div class="lg:col-span-1 hidden lg:block h-32 w-px bg-slate-200 justify-self-center"></div>
           <div class="lg:col-span-6 flex flex-col gap-4 text-sm sm:text-base font-light text-slate-600 leading-relaxed">
@@ -528,119 +528,584 @@
 
 
       <!-- ==================== PROGRAMS TAB ==================== -->
-      <div id="view-programs" class="hidden animate-fadeIn py-16 px-6 sm:px-8 max-w-7xl mx-auto">
-        <div class="max-w-2xl mb-12">
-          <span class="text-xs font-bold font-mono text-sky-600 uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full w-fit">
-            Campaign Highlights
+      <div id="view-programs" class="hidden animate-fadeIn py-16 px-6 sm:px-8 max-w-5xl mx-auto">
+        <!-- Tab Category Heading -->
+        <div class="max-w-3xl mx-auto mb-10 text-center flex flex-col items-center">
+          <span class="text-[10px] font-bold text-sky-600 font-mono tracking-widest uppercase bg-sky-50 px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-sky-100/60">
+            <i data-lucide="compass" class="text-sky-500 animate-[spin_8s_linear_infinite] w-3 h-3"></i>
+            <span>Campaign Registry</span>
           </span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-2">
-            Our Key Structural Programs
+          <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 mt-2">
+            🌱 Our Journey
           </h2>
-          <p class="text-sm sm:text-base text-slate-500 font-light leading-relaxed mt-2.5Packed">
-            We center efforts on immediate, physical material relief coupled with childhood coaching. Select a campaign stream below to explore metrics.
+          <p class="text-xs text-slate-500 font-light mt-1.5 max-w-md">
+            Explore our real, localized historical drives, village actions, and community responses organized by year.
           </p>
+          <div class="h-1 w-12 bg-sky-600 rounded-full mt-3"></div>
         </div>
 
-        <!-- Sidebar layout structure -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-4 flex flex-col gap-4">
-            <button id="program-btn-education" onclick="selectProgram('education')" class="w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 outline-none relative group cursor-pointer border-sky-600 bg-sky-50/30 shadow-sm shadow-sky-50/50">
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center text-sky-700">
-                  <i data-lucide="graduation-cap" class="w-5 h-5"></i>
-                </div>
-                <div class="flex flex-col">
-                  <span class="text-xs font-mono text-slate-400">Project Vidyarthi</span>
-                  <span class="text-base font-bold text-slate-900">Child Education</span>
-                </div>
-                <div class="ml-auto">
-                  <i data-lucide="arrow-right" class="arrow-icon text-sky-600 transition-all transform rotate-45 shrink-0 w-4 h-4"></i>
-                </div>
-              </div>
-            </button>
-
-            <button id="program-btn-food-relief" onclick="selectProgram('food-relief')" class="w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 outline-none relative group cursor-pointer border-slate-100 bg-white hover:border-slate-200">
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600">
-                  <i data-lucide="flame" class="w-5 h-5"></i>
-                </div>
-                <div class="flex flex-col">
-                  <span class="text-xs font-mono text-slate-400">Project Anna</span>
-                  <span class="text-base font-bold text-slate-900">Food & Nutrition</span>
-                </div>
-                <div class="ml-auto">
-                  <i data-lucide="arrow-right" class="arrow-icon text-slate-300 group-hover:text-sky-500 transition-all shrink-0 w-4 h-4"></i>
-                </div>
-              </div>
-            </button>
-
-            <button id="program-btn-child-welfare" onclick="selectProgram('child-welfare')" class="w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 outline-none relative group cursor-pointer border-slate-100 bg-white hover:border-slate-200">
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
-                  <i data-lucide="sparkles" class="w-5 h-5"></i>
-                </div>
-                <div class="flex flex-col">
-                  <span class="text-xs font-mono text-slate-400">Project Suraksha</span>
-                  <span class="text-base font-bold text-slate-900">Child Welfare</span>
-                </div>
-                <div class="ml-auto">
-                  <i data-lucide="arrow-right" class="arrow-icon text-slate-300 group-hover:text-sky-500 transition-all shrink-0 w-4 h-4"></i>
-                </div>
-              </div>
-            </button>
-
-            <button id="program-btn-elderly-care" onclick="selectProgram('elderly-care')" class="w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 outline-none relative group cursor-pointer border-slate-100 bg-white hover:border-slate-200">
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-rose-500">
-                  <i data-lucide="heart" class="w-5 h-5"></i>
-                </div>
-                <div class="flex flex-col">
-                  <span class="text-xs font-mono text-slate-400">Project Dignity</span>
-                  <span class="text-base font-bold text-slate-900">Elderly Support</span>
-                </div>
-                <div class="ml-auto">
-                  <i data-lucide="arrow-right" class="arrow-icon text-slate-300 group-hover:text-sky-500 transition-all shrink-0 w-4 h-4"></i>
-                </div>
-              </div>
-            </button>
-          </div>
-
-          <!-- Dynamic Details Desk -->
-          <div class="lg:col-span-8 bg-white border border-slate-150 rounded-3xl p-6 sm:p-9 shadow-sm flex flex-col gap-6">
-            <div class="border-b border-slate-100 pb-5">
-              <h3 id="program-detail-title" class="text-xl sm:text-2xl font-extrabold text-slate-950 leading-tight">
-                Project Vidyarthi: Enlightening Young Minds
+        <!-- Panel Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-10 items-start mb-16">
+          
+          <!-- LEFT PANEL: Year Selector Buttons -->
+          <div class="md:sticky md:top-24 z-10">
+            <div class="bg-white rounded-2xl p-3 border border-slate-200/60 md:shadow-sm">
+              <h3 class="hidden md:block text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 mb-3 px-2">
+                Select Operating Year
               </h3>
-              <p id="program-detail-desc" class="text-xs sm:text-sm text-slate-600 mt-3 font-light leading-relaxed">
-                At H3F, we believe education is the single most powerful weapon against poverty. Through Project Vidyarthi, we provide targeted educational kits (including backpacks, notebooks, writing materials, and mathematical instruments) to direct students and maintain routine coaching classes after school hours so that no child drops out due to lack of academic support.
-              </p>
-            </div>
+              
+              <!-- Scrollable button list -->
+              <div class="flex md:flex-col overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 gap-1.5">
+                <!-- Button 2026 -->
+                <button id="static-year-btn-2026" onclick="selectYearStatic('2026')" class="flex-none md:w-full text-left py-2.5 px-3 rounded-lg flex items-center justify-between transition-all outline-none cursor-pointer border bg-sky-50 border-sky-200 text-sky-800 font-bold">
+                  <div class="flex items-center gap-2.5">
+                    <div id="static-year-indicator-2026" class="w-2 h-2 rounded-full bg-sky-500 ring-2 ring-sky-200 transition-all"></div>
+                    <span class="text-sm font-bold font-mono">2026</span>
+                  </div>
+                  <span class="text-[10px] font-mono px-1.5 py-0.5 rounded ml-2 md:ml-0 bg-sky-100 text-sky-800 font-bold">1 Drive</span>
+                </button>
 
-            <!-- Core Campaign bullets target lists -->
-            <div class="flex flex-col gap-3">
-              <h4 class="text-[11px] font-bold tracking-widest text-slate-400 uppercase font-mono">Principal Objectives</h4>
-              <ul id="program-detail-objectives" class="flex flex-col gap-3.5 pl-0.5">
-                <!-- Inner HTML populated by Script -->
-              </ul>
-            </div>
+                <!-- Button 2025 -->
+                <button id="static-year-btn-2025" onclick="selectYearStatic('2025')" class="flex-none md:w-full text-left py-2.5 px-3 rounded-lg flex items-center justify-between transition-all outline-none cursor-pointer border bg-transparent border-transparent text-slate-600 hover:bg-slate-50">
+                  <div class="flex items-center gap-2.5">
+                    <div id="static-year-indicator-2025" class="w-2 h-2 rounded-full bg-slate-300 transition-all"></div>
+                    <span class="text-sm font-bold font-mono">2025</span>
+                  </div>
+                  <span class="text-[10px] font-mono px-1.5 py-0.5 rounded ml-2 md:ml-0 bg-slate-100 text-slate-500">3 Drives</span>
+                </button>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
-              <div class="p-4 bg-sky-50/50 rounded-2xl border border-sky-100 flex flex-col gap-1.5Packed">
-                <span class="text-[10px] uppercase tracking-wider font-mono font-bold text-sky-700">Target Metrics</span>
-                <p id="program-detail-achievements" class="text-xs sm:text-sm text-slate-700 font-light leading-relaxed">
-                  Over 850 children in Behala and adjoining slum pockets have received full educational kits and direct mentorship.
-                </p>
-              </div>
+                <!-- Button 2024 -->
+                <button id="static-year-btn-2024" onclick="selectYearStatic('2024')" class="flex-none md:w-full text-left py-2.5 px-3 rounded-lg flex items-center justify-between transition-all outline-none cursor-pointer border bg-transparent border-transparent text-slate-600 hover:bg-slate-50">
+                  <div class="flex items-center gap-2.5">
+                    <div id="static-year-indicator-2024" class="w-2 h-2 rounded-full bg-slate-300 transition-all"></div>
+                    <span class="text-sm font-bold font-mono">2024</span>
+                  </div>
+                  <span class="text-[10px] font-mono px-1.5 py-0.5 rounded ml-2 md:ml-0 bg-slate-100 text-slate-500">2 Drives</span>
+                </button>
 
-              <div class="p-4 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col gap-1.5Packed">
-                <span class="text-[10px] uppercase tracking-wider font-mono font-bold text-slate-500">Core Beneficiaries</span>
-                <p id="program-detail-beneficiaries" class="text-xs sm:text-sm text-slate-700 font-light leading-relaxed">
-                  Children aged 5-15 from low-income, single-parent, or daily-wage workers' families.
-                </p>
+                <!-- Button 2023 -->
+                <button id="static-year-btn-2023" onclick="selectYearStatic('2023')" class="flex-none md:w-full text-left py-2.5 px-3 rounded-lg flex items-center justify-between transition-all outline-none cursor-pointer border bg-transparent border-transparent text-slate-600 hover:bg-slate-50">
+                  <div class="flex items-center gap-2.5">
+                    <div id="static-year-indicator-2023" class="w-2 h-2 rounded-full bg-slate-300 transition-all"></div>
+                    <span class="text-sm font-bold font-mono">2023</span>
+                  </div>
+                  <span class="text-[10px] font-mono px-1.5 py-0.5 rounded ml-2 md:ml-0 bg-slate-100 text-slate-500">1 Drive</span>
+                </button>
+
+                <!-- Button 2022 -->
+                <button id="static-year-btn-2022" onclick="selectYearStatic('2022')" class="flex-none md:w-full text-left py-2.5 px-3 rounded-lg flex items-center justify-between transition-all outline-none cursor-pointer border bg-transparent border-transparent text-slate-600 hover:bg-slate-50">
+                  <div class="flex items-center gap-2.5">
+                    <div id="static-year-indicator-2022" class="w-2 h-2 rounded-full bg-slate-300 transition-all"></div>
+                    <span class="text-sm font-bold font-mono">2022</span>
+                  </div>
+                  <span class="text-[10px] font-mono px-1.5 py-0.5 rounded ml-2 md:ml-0 bg-slate-100 text-slate-500">1 Drive</span>
+                </button>
               </div>
             </div>
           </div>
+
+          <!-- RIGHT PANEL: Display Selected Year Details -->
+          <div class="min-h-[380px] bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/70 shadow-xs relative overflow-hidden">
+            
+            <!-- Pane 2026 -->
+            <div id="static-year-pane-2026" class="static-pane flex flex-col gap-5.5 animate-[fadeIn_0.2s_ease-out]">
+              <div class="absolute right-4 top-2 text-[80px] sm:text-[100px] font-black font-mono text-slate-50 leading-none select-none z-0 pointer-events-none tracking-tighter">
+                2026
+              </div>
+              <div class="flex items-start gap-3.5 relative z-10 border-b border-slate-100 pb-4">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100/80 shrink-0 shadow-xs">
+                  <i data-lucide="award" class="text-emerald-500 w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg sm:text-xl font-bold text-slate-900">Campaigns Year 2026</h3>
+                  <p class="text-xs text-slate-500 font-light mt-0.5 leading-relaxed">
+                    Entering third year of operations with deep local integration and sustained rural primary school support drives.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Drives -->
+              <div class="space-y-4 relative z-10">
+                <h4 class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">Action Records (1)</h4>
+                <div class="border border-slate-100 bg-slate-50/30 hover:bg-slate-50/75 p-4 rounded-xl transition-all hover:shadow-xs group">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-slate-100 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[9px] font-mono font-bold bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">DRIVE #8</span>
+                      <h5 class="text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors">Sonarpur Drive</h5>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-sky-700 bg-sky-50/80 px-1.5 py-0.5 rounded border border-sky-100/60">
+                        <i data-lucide="calendar" class="w-2.5 h-2.5"></i>June 2026
+                      </span>
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded border border-amber-100/60">
+                        <i data-lucide="map-pin" class="w-2.5 h-2.5"></i>Sonarpur Village District
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="mt-3.5 space-y-2">
+                    <li class="flex items-start gap-2 text-xs text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Supported a vital rural primary school initiative</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Distributed nutritious food packets, sturdy school bags, games items, and full stationery packages</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Assisted the school state mid-day meal support channel with clean food distribution</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pane 2025 -->
+            <div id="static-year-pane-2025" class="static-pane flex flex-col gap-5.5 hidden animate-[fadeIn_0.2s_ease-out]">
+              <div class="absolute right-4 top-2 text-[80px] sm:text-[100px] font-black font-mono text-slate-50 leading-none select-none z-0 pointer-events-none tracking-tighter">
+                2025
+              </div>
+              <div class="flex items-start gap-3.5 relative z-10 border-b border-slate-100 pb-4">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100/80 shrink-0 shadow-xs">
+                  <i data-lucide="trending-up" class="text-sky-500 w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg sm:text-xl font-bold text-slate-900">Campaigns Year 2025</h3>
+                  <p class="text-xs text-slate-500 font-light mt-0.5 leading-relaxed">
+                    Geographic expansion and landmark outreach beyond Kolkata city perimeter to coastal river areas.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Drives -->
+              <div class="space-y-4 relative z-10">
+                <h4 class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">Action Records (3)</h4>
+                
+                <!-- Drive 7 -->
+                <div class="border border-slate-100 bg-slate-50/30 hover:bg-slate-50/75 p-4 rounded-xl transition-all hover:shadow-xs group">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-slate-100 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[9px] font-mono font-bold bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">DRIVE #7</span>
+                      <h5 class="text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors">Expanded Sundarban Drive</h5>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-sky-700 bg-sky-50/80 px-1.5 py-0.5 rounded border border-sky-100/60">
+                        <i data-lucide="calendar" class="w-2.5 h-2.5"></i>Dec 2025
+                      </span>
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded border border-amber-100/60">
+                        <i data-lucide="map-pin" class="w-2.5 h-2.5"></i>Goranbose & Nafarganj Villages
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="mt-3.5 space-y-2">
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Covered ultra-remote riverine villages of Goranbose and Nafarganj</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Distributed academic textbooks and study reference kits to local schoolgirls</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Provided heavy direct grocery bags and warm winter blankets to over 100+ unassisted elderly residents</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Drive 6 -->
+                <div class="border border-slate-100 bg-slate-50/30 hover:bg-slate-50/75 p-4 rounded-xl transition-all hover:shadow-xs group">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-slate-100 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[9px] font-mono font-bold bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">DRIVE #6</span>
+                      <h5 class="text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors">Sundarban Drive</h5>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-sky-700 bg-sky-50/80 px-1.5 py-0.5 rounded border border-sky-100/60">
+                        <i data-lucide="calendar" class="w-2.5 h-2.5"></i>Sept 2025
+                      </span>
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded border border-amber-100/60">
+                        <i data-lucide="map-pin" class="w-2.5 h-2.5"></i>Sundarban Delta Region
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="mt-3.5 space-y-2">
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Executed our landmark first outreach campaign outside the Kolkata city perimeter</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Provided complete dry food materials and groceries to underprivileged households</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-300650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Distributed hand-stitched clothing collections for infants, warm blankets, and essential writing kits</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Drive 5 -->
+                <div class="border border-slate-100 bg-slate-50/30 hover:bg-slate-50/75 p-4 rounded-xl transition-all hover:shadow-xs group">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-slate-100 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[9px] font-mono font-bold bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">DRIVE #5</span>
+                      <h5 class="text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors">Village Drive</h5>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-sky-700 bg-sky-50/80 px-1.5 py-0.5 rounded border border-sky-100/60">
+                        <i data-lucide="calendar" class="w-2.5 h-2.5"></i>Mar 2025
+                      </span>
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded border border-amber-100/60">
+                        <i data-lucide="map-pin" class="w-2.5 h-2.5"></i>Raniakuthi Village
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="mt-3.5 space-y-2">
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Distributed custom-designed new dresses, clothing pairs, and clean family food boxes</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Provided complete writing pens, notebooks, and dynamic stationery kits to schoolgoers</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pane 2024 -->
+            <div id="static-year-pane-2024" class="static-pane flex flex-col gap-5.5 hidden animate-[fadeIn_0.2s_ease-out]">
+              <div class="absolute right-4 top-2 text-[80px] sm:text-[100px] font-black font-mono text-slate-50 leading-none select-none z-0 pointer-events-none tracking-tighter">
+                2024
+              </div>
+              <div class="flex items-start gap-3.5 relative z-10 border-b border-slate-100 pb-4">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100/80 shrink-0 shadow-xs">
+                  <i data-lucide="sparkles" class="text-amber-500 w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg sm:text-xl font-bold text-slate-900">Campaigns Year 2024</h3>
+                  <p class="text-xs text-slate-500 font-light mt-0.5 leading-relaxed">
+                    Programmatic scaling through school holiday joy distribution and intense freezing winter street rescues.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Drives -->
+              <div class="space-y-4 relative z-10">
+                <h4 class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">Action Records (2)</h4>
+
+                <!-- Drive 4 -->
+                <div class="border border-slate-100 bg-slate-50/30 hover:bg-slate-50/75 p-4 rounded-xl transition-all hover:shadow-xs group">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-slate-100 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[9px] font-mono font-bold bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">DRIVE #4</span>
+                      <h5 class="text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors">Winter Drive</h5>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-sky-700 bg-sky-50/80 px-1.5 py-0.5 rounded border border-sky-100/60">
+                        <i data-lucide="calendar" class="w-2.5 h-2.5"></i>Dec 2024
+                      </span>
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded border border-amber-100/60">
+                        <i data-lucide="map-pin" class="w-2.5 h-2.5"></i>Kolkata Streets
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="mt-3.5 space-y-2">
+                    <li class="flex items-start gap-2 text-xs text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Conducted midnight street distributions of hand-packed, freshly cooked homemade food</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Distributed premium heavy blankets to homeless people seeking shelter along roadsides and station platforms</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Drive 3 -->
+                <div class="border border-slate-100 bg-slate-50/30 hover:bg-slate-50/75 p-4 rounded-xl transition-all hover:shadow-xs group">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-slate-100 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[9px] font-mono font-bold bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">DRIVE #3</span>
+                      <h5 class="text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors">Durga Puja Drive</h5>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-sky-700 bg-sky-50/80 px-1.5 py-0.5 rounded border border-sky-100/60">
+                        <i data-lucide="calendar" class="w-2.5 h-2.5"></i>October 2024
+                      </span>
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded border border-amber-100/60">
+                        <i data-lucide="map-pin" class="w-2.5 h-2.5"></i>Sarisha Village, Diamond Harbour
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="mt-3.5 space-y-2">
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Partnered with and supported two under-resourced countryside primary schools</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Gifted premium new festive dresses to around 180 young students to spread puja smiles</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pane 2023 -->
+            <div id="static-year-pane-2023" class="static-pane flex flex-col gap-5.5 hidden animate-[fadeIn_0.2s_ease-out]">
+              <div class="absolute right-4 top-2 text-[80px] sm:text-[100px] font-black font-mono text-slate-50 leading-none select-none z-0 pointer-events-none tracking-tighter">
+                2023
+              </div>
+              <div class="flex items-start gap-3.5 relative z-10 border-b border-slate-100 pb-4">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100/80 shrink-0 shadow-xs">
+                  <i data-lucide="file-check" class="text-indigo-500 w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg sm:text-xl font-bold text-slate-900">Campaigns Year 2023</h3>
+                  <p class="text-xs text-slate-500 font-light mt-0.5 leading-relaxed">
+                    Landmark year of H3F's formal transition into an officially Government registered NGO.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Milestone Note -->
+              <div class="bg-indigo-50/50 border border-indigo-100/40 rounded-xl p-3.5 text-xs text-slate-655 flex items-start gap-2.5 relative z-10">
+                <div class="w-5 h-5 rounded-md bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0 font-medium">✨</div>
+                <div>
+                  <strong class="font-bold text-indigo-900 font-mono text-[10px] uppercase tracking-wider block">Scale & Government Registration</strong>
+                  <span class="font-light text-slate-600 block mt-0.5">
+                    Operational strength expanded from 6 to 13 members within this single year, boosting the scope of roadside actions and enabling formal legal West Bengal governmental registration.
+                  </span>
+                </div>
+              </div>
+
+              <!-- Drives -->
+              <div class="space-y-4 relative z-10">
+                <h4 class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">Action Records (1)</h4>
+
+                <!-- Drive 2 -->
+                <div class="border border-slate-100 bg-slate-50/30 hover:bg-slate-50/75 p-4 rounded-xl transition-all hover:shadow-xs group">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-slate-100 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[9px] font-mono font-bold bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">DRIVE #2</span>
+                      <h5 class="text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors">Second Drive</h5>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-sky-700 bg-sky-50/80 px-1.5 py-0.5 rounded border border-sky-100/60">
+                        <i data-lucide="calendar" class="w-2.5 h-2.5"></i>11 June 2023
+                      </span>
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded border border-amber-100/60">
+                        <i data-lucide="map-pin" class="w-2.5 h-2.5"></i>South Kolkata Streets
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="mt-3.5 space-y-2">
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Distributed dry ration supplies and packed grocery sets directly to pavement dwellers</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-650 text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Offered relief and daily-use support kits to over 80+ roadside people</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pane 2022 -->
+            <div id="static-year-pane-2022" class="static-pane flex flex-col gap-5.5 hidden animate-[fadeIn_0.2s_ease-out]">
+              <div class="absolute right-4 top-2 text-[80px] sm:text-[100px] font-black font-mono text-slate-50 leading-none select-none z-0 pointer-events-none tracking-tighter">
+                2022
+              </div>
+              <div class="flex items-start gap-3.5 relative z-10 border-b border-slate-100 pb-4">
+                <div class="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-100/80 shrink-0 shadow-xs">
+                  <i data-lucide="leaf" class="text-emerald-500 w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg sm:text-xl font-bold text-slate-900">Campaigns Year 2022</h3>
+                  <p class="text-xs text-slate-500 font-light mt-0.5 leading-relaxed">
+                    Our humble origins fueled by dynamic, compassionate youth volunteers on the ground with zero external funding.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Milestone Note -->
+              <div class="bg-emerald-50/50 border border-emerald-100/40 rounded-xl p-3.5 text-xs text-slate-650 flex items-start gap-2.5 relative z-10">
+                <div class="w-5 h-5 rounded-md bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-medium">🌱</div>
+                <div>
+                  <strong class="font-bold text-emerald-950 text-emerald-950 font-mono text-[10px] uppercase tracking-wider block">Cooperative Founding Roots</strong>
+                  <span class="font-light text-slate-600 block mt-0.5">
+                    Initiated collectively by young Kolkata students contributing their personal allowances. No formal office or external charity was utilized; drives focused on pure roadside meal distributions.
+                  </span>
+                </div>
+              </div>
+
+              <!-- Drives -->
+              <div class="space-y-4 relative z-10">
+                <h4 class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-450 text-slate-400">Action Records (1)</h4>
+
+                <!-- Drive 1 -->
+                <div class="border border-slate-100 bg-slate-50/30 hover:bg-slate-50/75 p-4 rounded-xl transition-all hover:shadow-xs group">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-slate-100 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[9px] font-mono font-bold bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">DRIVE #1</span>
+                      <h5 class="text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors">First Drive</h5>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5">
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-sky-700 bg-sky-50/80 px-1.5 py-0.5 rounded border border-sky-100/60">
+                        <i data-lucide="calendar" class="w-2.5 h-2.5"></i>10 Dec 2022
+                      </span>
+                      <span class="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded border border-amber-100/60">
+                        <i data-lucide="map-pin" class="w-2.5 h-2.5"></i>Raniakuthi Village Area
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="mt-3.5 space-y-2">
+                    <li class="flex items-start gap-2 text-xs text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Successfully organized an absolute grand festive community lunch for 50+ underprivileged children</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-slate-600 leading-normal font-light">
+                      <i data-lucide="arrow-right" class="text-sky-400 mt-1 shrink-0 w-3.5 h-3.5"></i>
+                      <span>Distributed new protective blankets, fresh dry fruits, primary stationery kits, and collections of neatly sorted old clothes</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+
+        <!-- Vision & Growth Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-200">
+          <!-- Growth Card -->
+          <div class="bg-white rounded-2.5xl p-6 sm:p-7 border border-slate-100 shadow-sm flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 border border-rose-100">
+                <i data-lucide="users" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 font-sans">❤️ Our Growth</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light font-sans">
+              From a small group of 6 members to a dedicated team working across multiple regions, our journey reflects consistent effort, teamwork, and commitment toward helping those in need.
+            </p>
+          </div>
+
+          <!-- Vision Card -->
+          <div class="bg-white rounded-2.5xl p-6 sm:p-7 border border-slate-100 shadow-sm flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center shrink-0 border border-emerald-100">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 font-sans">🌟 Our Vision Ahead</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light font-sans">
+              We aim to continue expanding our reach, supporting more communities, and bringing meaningful change through education, food support, healthcare, and social welfare initiatives.
+            </p>
+          </div>
+        </div>
+
+        <!-- Core vanilla state-toggling script -->
+        <script>
+          function selectYearStatic(yearId) {
+            // 1. Hide all panes
+            const panes = document.querySelectorAll('.static-pane');
+            panes.forEach(pane => pane.classList.add('hidden'));
+
+            // 2. Show active pane
+            const activePane = document.getElementById('static-year-pane-' + yearId);
+            if (activePane) {
+              activePane.classList.remove('hidden');
+            }
+
+            // 3. Reset all buttons styling
+            const years = ['2026', '2025', '2024', '2023', '2022'];
+            years.forEach(y => {
+              const btn = document.getElementById('static-year-btn-' + y);
+              const indicator = document.getElementById('static-year-indicator-' + y);
+              if (btn) {
+                if (y === yearId) {
+                  btn.className = "flex-none md:w-full text-left py-2.5 px-3 rounded-lg flex items-center justify-between transition-all outline-none cursor-pointer border bg-sky-50/90 border-sky-200 text-sky-800 font-bold shadow-xs";
+                  if (indicator) {
+                    indicator.className = "w-2 h-2 rounded-full bg-sky-500 ring-2 ring-sky-200 scale-110 transition-all";
+                  }
+                } else {
+                  btn.className = "flex-none md:w-full text-left py-2.5 px-3 rounded-lg flex items-center justify-between transition-all outline-none cursor-pointer border bg-transparent border-transparent text-slate-600 hover:bg-slate-50";
+                  if (indicator) {
+                    indicator.className = "w-2 h-2 rounded-full bg-slate-300 transition-all";
+                  }
+                }
+              }
+            });
+          }
+          
+          // Fallback init
+          document.addEventListener('DOMContentLoaded', () => {
+            selectYearStatic('2026');
+          });
+          selectYearStatic('2026');
+        </script>
+
+        <!-- Vision & Growth Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-200">
+          <!-- Growth Card -->
+          <div class="bg-white rounded-2.5xl p-6 sm:p-7 border border-slate-100 shadow-sm flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 border border-rose-100">
+                <i data-lucide="users" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 font-sans">❤️ Our Growth</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light font-sans">
+              From a small group of 6 members to a dedicated team working across multiple regions, our journey reflects consistent effort, teamwork, and commitment toward helping those in need.
+            </p>
+          </div>
+
+          <!-- Vision Card -->
+          <div class="bg-white rounded-2.5xl p-6 sm:p-7 border border-slate-100 shadow-sm flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center shrink-0 border border-emerald-100">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 font-sans">🌟 Our Vision Ahead</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light font-sans">
+              We aim to continue expanding our reach, supporting more communities, and bringing meaningful change through education, food support, healthcare, and social welfare initiatives.
+            </p>
+          </div>
+        </div>
+
+        <!-- Core vanilla state-toggling script -->
+        <script>
+          function toggleYearStatic(yearId) {
+            const pane = document.getElementById('year-pane-' + yearId);
+            const arrow = document.getElementById('year-arrow-' + yearId);
+            const box = document.getElementById('year-box-' + yearId);
+            if (!pane) return;
+
+            const isHidden = pane.classList.contains('hidden');
+            if (isHidden) {
+              pane.classList.remove('hidden');
+              box.className = "border rounded-2.5xl bg-white border-sky-500 shadow-sm shadow-sky-100/50 transition-all overflow-hidden animate-[fadeIn_0.2s_ease]";
+              if (arrow) {
+                arrow.style.transform = 'rotate(180deg)';
+                arrow.className = "w-8 h-8 rounded-full border border-sky-100 bg-sky-50 text-sky-600 flex items-center justify-center transition-transform duration-200";
+              }
+            } else {
+              pane.classList.add('hidden');
+              box.className = "border rounded-2.5xl bg-white border-slate-200/80 hover:border-slate-300 transition-all overflow-hidden";
+              if (arrow) {
+                arrow.style.transform = 'rotate(0deg)';
+                arrow.className = "w-8 h-8 rounded-full border border-slate-100 bg-slate-50 text-slate-400 flex items-center justify-center transition-transform duration-200";
+              }
+            }
+          }
+        </script>
       </div>
 
 
@@ -1091,7 +1556,7 @@
       <!-- Statutory copyright footer -->
       <div class="border-t border-slate-900 bg-slate-950 py-6 px-4 text-center text-[11px] text-slate-500 font-mono">
         <p class="max-w-4xl mx-auto leading-normal text-slate-400">
-          © 2026 HOPE HEAL AND HUMANITY FOUNDATION (H3F). All Rights Reserved. Reg No: S0024953/WB.
+          © 2026 HOPE HEAL AND HUMANITY FOUNDATION (H3F). All Rights Reserved. Reg No: 190100470
           <br class="hidden sm:block" />
           Designed in conformity with supreme NGO sitemap standards for structural transparency.
         </p>
